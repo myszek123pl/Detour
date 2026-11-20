@@ -1,0 +1,39 @@
+trade raw bytes/row ~ 262
+
+A_watchlist (bot-tracked tokens only): 23 avg trades/s, peak(x10) 231/s, raw 0.5 GB/day
+   CH conservative(4x): 0.13 GB/day -> 3.9 GB/mo, 0.05 TB/yr
+   CH typical(8x): 0.07 GB/day -> 2.0 GB/mo, 0.02 TB/yr
+   CH optimistic(12x): 0.04 GB/day -> 1.3 GB/mo, 0.02 TB/yr
+   Plain PG/Timescale uncompressed (idx+hdr x1.6 assumed): 0.8 GB/day -> 0.03 TB/mo
+   Timescale compressed (6x of raw): 0.09 GB/day
+B_memecoin_all (pump.fun+PumpSwap+Raydium+Meteora memes): 347 avg trades/s, peak(x10) 3472/s, raw 7.9 GB/day
+   CH conservative(4x): 1.97 GB/day -> 59.0 GB/mo, 0.72 TB/yr
+   CH typical(8x): 0.98 GB/day -> 29.5 GB/mo, 0.36 TB/yr
+   CH optimistic(12x): 0.66 GB/day -> 19.7 GB/mo, 0.24 TB/yr
+   Plain PG/Timescale uncompressed (idx+hdr x1.6 assumed): 12.6 GB/day -> 0.38 TB/mo
+   Timescale compressed (6x of raw): 1.31 GB/day
+C_full_firehose (all Solana DEX swaps): 926 avg trades/s, peak(x10) 9259/s, raw 21.0 GB/day
+   CH conservative(4x): 5.24 GB/day -> 157.2 GB/mo, 1.91 TB/yr
+   CH typical(8x): 2.62 GB/day -> 78.6 GB/mo, 0.96 TB/yr
+   CH optimistic(12x): 1.75 GB/day -> 52.4 GB/mo, 0.64 TB/yr
+   Plain PG/Timescale uncompressed (idx+hdr x1.6 assumed): 33.5 GB/day -> 1.01 TB/mo
+   Timescale compressed (6x of raw): 3.49 GB/day
+
+pool_snapshots/OHLCV 1s on watchlist 2000 tokens active 6h: 0.302 GB/day
+ohlcv_1m all active tokens 20k*1440 *64B: 1.843 GB/day
+new_tokens 40k/day *400B: 0.016 GB/day
+wallet_funding_edges 300k/day *150B: 0.045 GB/day
+features (1s, 500 tokens, 60 feats f32 = 260B): 11.232 GB/day
+features (1s, 500 tok) compressed 5x: 2.246 GB/day
+orders 5k/day *300B: 0.002 GB/day
+fills 4k/day *250B: 0.001 GB/day
+pnl_ledger/tax_log 4k/day*300B: 0.001 GB/day
+raw gRPC firehose archive (zstd Parquet of tx logs) scen B ~600B/tx raw, 6x: 3.000 GB/day
+
+A_watchlist (bot-tracked tokens only): 1yr CH@8x = 24 GB -> EBS $2/mo, S3 $1/mo; PG uncompressed 1yr 0.3 TB -> $24/mo
+B_memecoin_all (pump.fun+PumpSwap+Raydium+Meteora memes): 1yr CH@8x = 359 GB -> EBS $29/mo, S3 $8/mo; PG uncompressed 1yr 4.6 TB -> $367/mo
+C_full_firehose (all Solana DEX swaps): 1yr CH@8x = 956 GB -> EBS $77/mo, S3 $22/mo; PG uncompressed 1yr 12.2 TB -> $979/mo
+Redis hot set bytes ~ 26.864 MB
+A_watchlist (bot-tracked tokens only) peak rows/s (10x avg, assumed burst): 231 | 1 insert/s of 231 rows
+B_memecoin_all (pump.fun+PumpSwap+Raydium+Meteora memes) peak rows/s (10x avg, assumed burst): 3472 | 1 insert/s of 3472 rows
+C_full_firehose (all Solana DEX swaps) peak rows/s (10x avg, assumed burst): 9259 | 1 insert/s of 9259 rows

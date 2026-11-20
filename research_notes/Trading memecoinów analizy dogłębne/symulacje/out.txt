@@ -1,0 +1,50 @@
+a_random_grad0.3% A hold+stop35 (no TP) EV -0.501 med -0.427 win 0.002
+a_random_grad0.3% B ladder 2x:50% 5x:25% +trail40 + stop35 EV -0.237 med -0.420 win 0.156
+a_random_grad0.3% C ladder 2x:40% 4x:20% 10x:20% +trail50 + stop35 EV -0.260 med -0.420 win 0.150
+a_random_grad0.3% D tight: 1.5x:50% +trail25 + stop20 EV -0.013 med -0.270 win 0.279
+a_random_grad0.8% A hold+stop35 (no TP) EV -0.498 med -0.427 win 0.003
+a_random_grad0.8% B ladder 2x:50% 5x:25% +trail40 + stop35 EV -0.219 med -0.419 win 0.160
+a_random_grad0.8% C ladder 2x:40% 4x:20% 10x:20% +trail50 + stop35 EV -0.240 med -0.419 win 0.154
+a_random_grad0.8% D tight: 1.5x:50% +trail25 + stop20 EV 0.012 med -0.269 win 0.284
+a_random_grad2% A hold+stop35 (no TP) EV -0.490 med -0.426 win 0.008
+a_random_grad2% B ladder 2x:50% 5x:25% +trail40 + stop35 EV -0.176 med -0.418 win 0.170
+a_random_grad2% C ladder 2x:40% 4x:20% 10x:20% +trail50 + stop35 EV -0.192 med -0.418 win 0.164
+a_random_grad2% D tight: 1.5x:50% +trail25 + stop20 EV 0.073 med -0.268 win 0.295
+c_postgrad A hold+stop35 (no TP) EV -0.015 med -0.397 win 0.130
+c_postgrad B ladder 2x:50% 5x:25% +trail40 + stop35 EV 0.220 med -0.396 win 0.233
+c_postgrad C ladder 2x:40% 4x:20% 10x:20% +trail50 + stop35 EV 0.159 med -0.396 win 0.233
+c_postgrad D tight: 1.5x:50% +trail25 + stop20 EV 0.650 med -0.249 win 0.350
+b u 1.0 A hold+stop35 (no TP) -0.4977
+b u 1.0 B ladder 2x:50% 5x:25% +trail40 + stop35 -0.2186
+b u 1.5 A hold+stop35 (no TP) -0.485
+b u 1.5 B ladder 2x:50% 5x:25% +trail40 + stop35 -0.0837
+b u 2.0 A hold+stop35 (no TP) -0.4714
+b u 2.0 B ladder 2x:50% 5x:25% +trail40 + stop35 0.0508
+b u 3.0 A hold+stop35 (no TP) -0.4452
+b u 3.0 B ladder 2x:50% 5x:25% +trail40 + stop35 0.3181
+b u 5.0 A hold+stop35 (no TP) -0.3932
+b u 5.0 B ladder 2x:50% 5x:25% +trail40 + stop35 0.8563
+BE 0.3% A hold+stop35 (no TP) 6.5147705078125
+BE 0.3% B ladder 2x:50% 5x:25% +trail40 + stop35 1.937255859375
+BE 0.8% A hold+stop35 (no TP) 6.309326171875
+BE 0.8% B ladder 2x:50% 5x:25% +trail40 + stop35 1.81640625
+BE 2% A hold+stop35 (no TP) 5.0
+BE 2% B ladder 2x:50% 5x:25% +trail40 + stop35 1.5673828125
+BE pg A hold+stop35 (no TP) 1.035614013671875
+BE pg B ladder 2x:50% 5x:25% +trail40 + stop35 1.0
+cost base 1.0 -0.2186
+cost base 2.0 0.0508
+cost +1% bot fee each way 1.0 -0.2322
+cost +1% bot fee each way 2.0 0.0318
+cost zero fees/slip/tip/fail (frictionless) 1.0 -0.1715
+cost zero fees/slip/tip/fail (frictionless) 2.0 0.1601
+cost no failed tx 1.0 -0.2473
+cost no failed tx 2.0 0.0567
+cost tips x3 1.0 -0.2423
+cost tips x3 2.0 0.0251
+a random grad0.8% / B {'EV': -0.22031684360096906, 'med': -0.4190022413440837, 'p_win': 0.16105, 'p_gt2x': 0.07786, 'p_lt_half': 0.23846, 'p_lt_0p1': 0.22641, 'p99': 2.7661668382305287, 'p999': 4.5582948752233925, 'mean_trimmed_top01': -0.2299179980945174, 'mean_trimmed_top1': -0.2618498074864433, 'sd': 0.8899682789622226}
+b filtered u=2 / B {'EV': 0.0486391649441334, 'med': -0.41054531768229396, 'p_win': 0.28523, 'p_gt2x': 0.15561, 'p_lt_half': 0.19508, 'p_lt_0p1': 0.184945, 'p99': 3.248338883556055, 'p999': 5.50654474541327, 'mean_trimmed_top01': 0.033829408815574856, 'mean_trimmed_top1': -0.0011299681661819136, 'sd': 1.154292871480796}
+b filtered u=3 / B {'EV': 0.3172909628196748, 'med': -0.002, 'p_win': 0.410035, 'p_gt2x': 0.23313, 'p_lt_half': 0.14955, 'p_lt_0p1': 0.14146, 'p99': 3.57050125365652, 'p999': 8.205130543114738, 'mean_trimmed_top01': 0.29845606236711775, 'mean_trimmed_top1': 0.26214591375709867, 'sd': 1.2997910418625283}
+b filtered u=2 / A {'EV': -0.47471454116581546, 'med': -0.4255412178839859, 'p_win': 0.00675, 'p_gt2x': 0.002445, 'p_lt_half': 0.22219, 'p_lt_0p1': 0.19248, 'p99': -0.002, 'p999': 1.524690100050603, 'mean_trimmed_top01': -0.48251745103688204, 'mean_trimmed_top1': -0.4906595934060696, 'sd': 0.4593119102334742}
+c postgrad / B {'EV': 0.21232330323648013, 'med': -0.39570725185159533, 'p_win': 0.231955, 'p_gt2x': 0.11492, 'p_lt_half': 0.038005, 'p_lt_0p1': 0.035215, 'p99': 7.550179125507793, 'p999': 29.582056423017505, 'mean_trimmed_top01': 0.1748442624818053, 'mean_trimmed_top1': 0.06307731612747872, 'sd': 2.041435753076421}
+c postgrad edge u=1.5 / B {'EV': 0.5069621725418867, 'med': -0.36460768183536485, 'p_win': 0.33994, 'p_gt2x': 0.17287, 'p_lt_half': 0.030885, 'p_lt_0p1': 0.02858, 'p99': 9.271746233129344, 'p999': 33.57906482973303, 'mean_trimmed_top01': 0.46608046540242026, 'mean_trimmed_top1': 0.32109518946335897, 'sd': 2.487462593690658}
