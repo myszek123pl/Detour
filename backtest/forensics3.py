@@ -18,7 +18,7 @@ R['hi']=R.lm>.6
 print(len(R),R.hi.mean())
 R['lmb']=pd.cut(R.lm,[0,.2,.4,.6,.8,1,2,1e9])
 g=R.groupby('lmb',observed=True).agg(n=('lm','size'),e_over_snap_med=('e_over_snap','median'),e_snap_p10=('e_over_snap',lambda x:x.quantile(.1)),e_snap_p90=('e_over_snap',lambda x:x.quantile(.9)),prev_over_snap=('prev_over_snap','median'),delay=('delay','median'),peak_med=('peak_mult','median'),p2x=('peak_mult',lambda x:(x>=2).mean()),final_med=('final_mult','median'),entry_med=('entry','median'),mc=('market_cap_usd','median'))
-print(g.round(3))
+print(g.round(3).to_string())
 FEE,TIP=0.0125,0.30
 def net(df,s,pos=200,liq=None):
     L=(df.liquidity_usd if liq is None else liq).clip(lower=1)
@@ -26,4 +26,4 @@ def net(df,s,pos=200,liq=None):
     return df[s]*(1-FEE-imp)**2-TIP*(1+df[s+'_n'])/pos-1
 for s in ['hold_24h','ladder_B','tight_D','runner_F']:
     print(s, 'gross mean by lmb', R.groupby('lmb',observed=True)[s].mean().round(3).tolist(), 'net', R.assign(x=net(R,s)).groupby('lmb',observed=True).x.mean().round(3).tolist())
-R.to_parquet('/tmp/x/R.parquet')
+R.drop(columns='lmb').to_parquet('/tmp/x/R.parquet')

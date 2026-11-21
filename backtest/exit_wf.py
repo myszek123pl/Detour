@@ -29,7 +29,7 @@ t0 = None
 def build():
     global M
     t, rows = load()
-    N, T = len(rows), 96
+    N, T = len(rows), max(len(s) for _, s in rows)
     A = np.full((4, N, T), np.nan); REL = np.full((N, T), np.inf)
     meta = []
     for j, (r, s) in enumerate(rows):
