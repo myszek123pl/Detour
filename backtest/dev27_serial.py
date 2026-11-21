@@ -1,6 +1,6 @@
 import duckdb, pandas as pd, numpy as np, hashlib
 P='/tmp/claude-0/-home-user-Detour/3c13baf7-a0f4-5f68-b19b-e49e07781897/scratchpad/datasets/solana-pumpfun-launches/repo/solana_launches_public.csv'
-df=pd.read_csv(P).sort_values('launch_unix').reset_index(drop=True)
+df=pd.read_csv(P).dropna(subset=['dev_wallet']).sort_values('launch_unix').reset_index(drop=True)
 print(len(df), df.dev_wallet.nunique(), df.token.nunique())
 vc=df.dev_wallet.value_counts()
 print(vc.describe()); 
@@ -65,6 +65,6 @@ for c in ['trades_5','vol_5','buys_5','sells_5','buy_vol_5','sell_vol_5','avg_5'
 df['bs_ratio5']=df.buy_vol_5/(df.sell_vol_5+1)
 df['pay']=0
 print(df.groupby(pd.cut(df.n_before,[-1,0,2,9,10**6]))[['trades_5','vol_5','bs_ratio5','price_15','growth_10','multiple']].median())
-df['dev_h']=df.dev_wallet.map(lambda x:hashlib.sha256(x.encode()).hexdigest()[:6])
+df['dev_h']=df.dev_wallet.map(lambda x:hashlib.sha256(str(x).encode()).hexdigest()[:6])
 print(df.groupby('dev_h').size().sort_values(ascending=False).head(10))
 df.to_pickle('/tmp/claude-0/-home-user-Detour/3c13baf7-a0f4-5f68-b19b-e49e07781897/scratchpad/launch27.pkl')
