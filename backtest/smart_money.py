@@ -187,10 +187,10 @@ for key in [("ours_top1000", 2), ("ours_top1000", 1), ("gmgn_smart_money(leaky)"
     dfs = {d: run(sg, d) for d in (0, 1, 2, 4)}
     common = set.intersection(*[set(d.token_address) for d in dfs.values()])
     for d, df in dfs.items():
-        dc = df[df.token_address.isin(common)]
-        for s in ("ladder_B", "tight_D", "hold_24h"):
-            m = summ(dc, s, "15k"); m.update(set=key[0], k=key[1], delay=d, strat=s, common=len(common), tradable_d=len(df))
-            lat.append(m)
+        for sample, dc in (("common", df[df.token_address.isin(common)]), ("all_tradable", df)):
+            for s in ("ladder_B", "tight_D", "hold_24h"):
+                m = summ(dc, s, "15k"); m.update(set=key[0], k=key[1], delay=d, strat=s, sample=sample, common=len(common), tradable_d=len(df))
+                lat.append(m)
 L = pd.DataFrame(lat); L.to_csv(f"{OUT}/smart_money_latency.csv", index=False)
 
 pers.to_csv(f"{OUT}/smart_money_persistence.csv", index=False)

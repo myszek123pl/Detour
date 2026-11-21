@@ -24,6 +24,11 @@ for D_, col in ((L, "multiple"), (C, "peak")):
     D_["hit2"] = (D_[col] >= 2).astype(int); D_["hit5"] = (D_[col] >= 5).astype(int)
     for lp in (.3, .5, .7): D_[f"pay{int(lp*100)}"] = rl.FEE * np.where(D_.hit2 == 1, 2.0, 1 - lp) - 1
 R["hit2"] = (R.peak_mult >= 2).astype(int); R["hit5"] = (R.peak_mult >= 5).astype(int)
+# trim partial / warm-up edge days (first-day calls n=14 all hits; first launch day starts 21:03; tokens start 08:36 Jun10 and end 20:01 Jun29)
+def _d(s_): return int(pd.Timestamp(s_, tz="UTC").timestamp())
+R = R[(R.cap_ts >= _d("2026-06-11")) & (R.cap_ts < _d("2026-06-29"))].reset_index(drop=True)
+L = L[L.launch_unix >= _d("2026-07-28")].reset_index(drop=True)
+C = C[C.t >= _d("2026-07-01")].reset_index(drop=True)
 
 
 def build(freq):
@@ -61,7 +66,6 @@ if PART == "persist":
         T, La, Ca = build(freq)
         for nm, S in (("tokens", T), ("launches", La), ("calls", Ca)):
             S = S[S.n > 0] if freq == H4 else S
-            if nm == "tokens" and freq == DAY: S = S.iloc[1:]   # first day partial (starts 08:36) -> keep but flag? keep all but drop none
             print(f"\n##### {nm} {fn}  T={len(S)}  mean n/period={S.n.mean():.1f}  min-detectable |r1|~{2/np.sqrt(len(S)):.2f}")
             k2, n = S.k2.to_numpy(float), S.n.to_numpy(float)
             # seasonality removal for 4h blocks: subtract time-of-day mean of the pearson residual

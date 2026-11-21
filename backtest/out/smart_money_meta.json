@@ -1,0 +1,1 @@
+{"p0": 0.3825619049465785, "train_wallets": 121603, "n5": 21051, "n10": 10248, "sizes": {"ours_top200": 200, "ours_top1000": 1000, "ours_top3000": 3000, "gmgn_smart_money(leaky)": 1600, "gmgn_winrate_top1600(leaky)": 1600, "gmgn_winrate_top200(leaky)": 200, "placebo_random1000": 1000}}

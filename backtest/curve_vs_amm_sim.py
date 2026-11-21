@@ -154,6 +154,8 @@ def run_scenario(name, sniper_exit, dev_exit, bot_entry_r, bot_exit, seed=7, pos
     while steps < 4000:
         steps += 1
         # triggers (checked before each organic order)
+        if bot_entry_r is not None and done['botin'] and not done['botout'] and trig(bot_exit, pool_orders) and bot_exit[0] == 'G':
+            m.sell_all('bot'); done['botout'] = True      # 'G': exit BEFORE the sniper/dev dump block
         if not done['snp'] and trig(sniper_exit, pool_orders):
             for i in range(n_snip): m.sell_all(f'snp{i}')
             done['snp'] = True
@@ -224,7 +226,7 @@ def sec_a():
         m = run_scenario(nm, se, de, None, None)
         pnl_tables(m, nm)
     print("### A2 Bot (1 SOL) entry at different points x exit at different points; Scenario = S2 (snipers+dev dump on pool right after graduation) vs S1")
-    entries = [2, 10, 25, 45, 65, 80]
+    entries = [12, 20, 30, 45, 65, 80]
     exits = [('G', 0), ('pool', 0), ('pool', 5), ('pool', 30), ('pool', 60)]
     exlab = ["first pool state (before dump)", "after sniper/dev dump block", "+5 pool orders", "+30 pool orders", "+60 pool orders"]
     for nm, se, de in [("S2: snipers+dev dump at pool block 0", ('pool', 0), ('pool', 0)), ("S1: snipers dumped early at r=15, dev holds", ('r', 15), None)]:
@@ -326,7 +328,7 @@ def sec_c():
     print(md_table(["X (supply)", "price drop", "SOL proceeds net", "buy volume to restore price (gross)", "effective sell price vs spot"], rows))
     print("\nClosed forms: curve - drop = 1-(vt/(vt+n))^2 ; gross out = vs*n/(vt+n) ; restore volume = gross*(1+f).  pool - identical with (ps, pt).  Restore volume equals what the dumper took out, plus the 1.25% fee: buyers must re-deposit exactly the SOL withdrawn.")
     print("\n### C3 Required buy volume to ABSORB the dump *and* keep market cap flat when the dumper's tokens are re-bought (same quantity as restore); expressed vs organic flow")
-    print("Typical organic inflow: pump.fun tokens that graduate raise 85 SOL over their life; e.g. an 85-SOL curve token with a 10% dump at r=40 needs:")
+    print("Example: 10% of supply dumped at r=40 on the curve:")
     d = dump_on_curve(40, 0.10); print(f"  restore volume = {d['restore']:.1f} SOL = {d['restore']/85:.0%} of the whole graduation raise; price drop {d['drop']:.0%}")
     d = dump_on_pool(0.10, start_ps=m.ps, start_pt=m.pt); print(f"  same 10% dumped on pool post-graduation: restore {d['restore']:.1f} SOL, drop {d['drop']:.0%}; pool dump proceeds {d['out']:.1f} SOL")
     print("\n### C4 Dump absorption by buying: time series. Sniper cluster (X% supply bought at start for tiny SOL) dumps at r; organic buyers needed to bring price back to the sniper's *entry* mcap level is trivial -> but to bring it back to the PRE-DUMP level requires restore volume above.")

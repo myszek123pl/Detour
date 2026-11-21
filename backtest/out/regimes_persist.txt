@@ -1,0 +1,81 @@
+
+##### tokens daily  T=18  mean n/period=509.5  min-detectable |r1|~0.47
+dispersion p2: {'p_pool': 0.2176, 'chi2': 30.2313, 'df': 17, 'ratio': 1.7783, 'pval': 0.0247}
+dispersion p5: {'p_pool': 0.0554, 'chi2': 47.8451, 'df': 17, 'ratio': 2.8144, 'pval': 0.0001}
+                    series     r1     r2     r3  perm_p_r1  bartlett95  spearman_next
+        p2 (pearson-resid)  0.561  0.454  0.264      0.003       0.462          0.498
+        p5 (pearson-resid) -0.326  0.443 -0.158      0.145       0.462         -0.319
+         log n (detrended) -0.292  0.022 -0.083      0.097       0.462         -0.199
+               log n (raw)  0.256  0.325  0.225      0.261       0.462          0.447
+ med_peak (log, detrended)  0.246 -0.251 -0.078      0.298       0.462          0.257
+net_ladder_B (mean/period)  0.297  0.006  0.147      0.190       0.462          0.439
+ net_tight_D (mean/period)  0.122 -0.163  0.104      0.614       0.462          0.260
+net_runner_F (mean/period)  0.385  0.025  0.111      0.087       0.462          0.444
+P(good next|good) vs |bad  [p2 resid > median]: {'p_good_after_good': 0.75, 'p_good_after_bad': 0.333, 'n_after_good': 8, 'n_after_bad': 9, 'fisher_p': 0.153}
+
+##### launches daily  T=60  mean n/period=471.4  min-detectable |r1|~0.26
+dispersion p2: {'p_pool': 0.2705, 'chi2': 272.7591, 'df': 59, 'ratio': 4.623, 'pval': 0.0}
+dispersion p5: {'p_pool': 0.051, 'chi2': 175.1005, 'df': 59, 'ratio': 2.9678, 'pval': 0.0}
+                   series    r1    r2    r3  perm_p_r1  bartlett95  spearman_next
+       p2 (pearson-resid) 0.655 0.550 0.422        0.0       0.253          0.655
+       p5 (pearson-resid) 0.468 0.530 0.353        0.0       0.253          0.447
+        log n (detrended) 0.627 0.438 0.334        0.0       0.253          0.666
+              log n (raw) 0.847 0.764 0.713        0.0       0.253          0.814
+med_peak (log, detrended) 0.416 0.142 0.139        0.0       0.253          0.442
+      pay50 (mean/period) 0.637 0.547 0.434        0.0       0.253          0.644
+P(good next|good) vs |bad  [p2 resid > median]: {'p_good_after_good': 0.724, 'p_good_after_bad': 0.267, 'n_after_good': 29, 'n_after_bad': 30, 'fisher_p': 0.001}
+
+##### calls daily  T=143  mean n/period=90.7  min-detectable |r1|~0.17
+dispersion p2: {'p_pool': 0.3661, 'chi2': 238.8692, 'df': 142, 'ratio': 1.6822, 'pval': 0.0}
+dispersion p5: {'p_pool': 0.1122, 'chi2': 174.3029, 'df': 142, 'ratio': 1.2275, 'pval': 0.0338}
+                   series    r1    r2     r3  perm_p_r1  bartlett95  spearman_next
+       p2 (pearson-resid) 0.151 0.087  0.146      0.057       0.164          0.168
+       p5 (pearson-resid) 0.129 0.123  0.090      0.112       0.164          0.131
+        log n (detrended) 0.446 0.130 -0.058      0.000       0.164          0.537
+              log n (raw) 0.458 0.155 -0.025      0.000       0.164          0.550
+med_peak (log, detrended) 0.151 0.077  0.124      0.058       0.164          0.190
+      pay50 (mean/period) 0.059 0.009  0.112      0.438       0.164          0.179
+P(good next|good) vs |bad  [p2 resid > median]: {'p_good_after_good': 0.543, 'p_good_after_bad': 0.444, 'n_after_good': 70, 'n_after_bad': 72, 'fisher_p': 0.314}
+
+## tokens: do days differ in per-trade net return? (per-trade, winsor 99%)
+ladder_B ANOVA F=2.13 p=0.00545;  Kruskal H=42.7 p=0.000309; between-day sd of mean=0.035  within-day sd/sqrt(n)=0.026
+tight_D ANOVA F=2.24 p=0.00303;  Kruskal H=32.2 p=0.00935; between-day sd of mean=0.026  within-day sd/sqrt(n)=0.018
+runner_F ANOVA F=2.14 p=0.00506;  Kruskal H=43.8 p=0.000214; between-day sd of mean=0.039  within-day sd/sqrt(n)=0.028
+
+##### tokens 4h-block  T=107  mean n/period=85.7  min-detectable |r1|~0.19
+dispersion p2: {'p_pool': 0.2176, 'chi2': 142.9146, 'df': 106, 'ratio': 1.3483, 'pval': 0.0098}
+dispersion p5: {'p_pool': 0.0554, 'chi2': 172.5045, 'df': 106, 'ratio': 1.6274, 'pval': 0.0}
+                    series    r1    r2    r3  perm_p_r1  bartlett95  spearman_next
+        p2 (pearson-resid) 0.244 0.105 0.144      0.011       0.189          0.253
+        p5 (pearson-resid) 0.177 0.161 0.006      0.062       0.189          0.188
+         log n (detrended) 0.366 0.139 0.046      0.000       0.189          0.421
+               log n (raw) 0.548 0.407 0.349      0.000       0.189          0.638
+ med_peak (log, detrended) 0.042 0.199 0.039      0.645       0.189          0.124
+net_ladder_B (mean/period) 0.217 0.078 0.086      0.024       0.189          0.241
+ net_tight_D (mean/period) 0.195 0.048 0.020      0.040       0.189          0.236
+net_runner_F (mean/period) 0.231 0.107 0.068      0.017       0.189          0.270
+P(good next|good) vs |bad  [p2 resid > median]: {'p_good_after_good': 0.577, 'p_good_after_bad': 0.426, 'n_after_good': 52, 'n_after_bad': 54, 'fisher_p': 0.174}
+
+##### launches 4h-block  T=360  mean n/period=78.6  min-detectable |r1|~0.11
+dispersion p2: {'p_pool': 0.2705, 'chi2': 692.1679, 'df': 359, 'ratio': 1.928, 'pval': 0.0}
+dispersion p5: {'p_pool': 0.051, 'chi2': 541.2922, 'df': 359, 'ratio': 1.5078, 'pval': 0.0}
+                   series    r1    r2    r3  perm_p_r1  bartlett95  spearman_next
+       p2 (pearson-resid) 0.311 0.320 0.305        0.0       0.103          0.295
+       p5 (pearson-resid) 0.292 0.174 0.116        0.0       0.103          0.298
+        log n (detrended) 0.363 0.020 0.003        0.0       0.103          0.417
+              log n (raw) 0.565 0.322 0.307        0.0       0.103          0.598
+med_peak (log, detrended) 0.271 0.237 0.229        0.0       0.103          0.281
+      pay50 (mean/period) 0.282 0.314 0.303        0.0       0.103          0.278
+P(good next|good) vs |bad  [p2 resid > median]: {'p_good_after_good': 0.589, 'p_good_after_bad': 0.408, 'n_after_good': 180, 'n_after_bad': 179, 'fisher_p': 0.001}
+
+##### calls 4h-block  T=849  mean n/period=15.3  min-detectable |r1|~0.07
+dispersion p2: {'p_pool': 0.3661, 'chi2': 922.67, 'df': 848, 'ratio': 1.0881, 'pval': 0.0377}
+dispersion p5: {'p_pool': 0.1122, 'chi2': 834.3695, 'df': 848, 'ratio': 0.9839, 'pval': 0.6242}
+                   series    r1    r2    r3  perm_p_r1  bartlett95  spearman_next
+       p2 (pearson-resid) 0.176 0.029 0.057      0.000       0.067          0.152
+       p5 (pearson-resid) 0.100 0.003 0.058      0.004       0.067          0.100
+        log n (detrended) 0.466 0.182 0.050      0.000       0.067          0.452
+              log n (raw) 0.473 0.193 0.064      0.000       0.067          0.458
+med_peak (log, detrended) 0.227 0.054 0.036      0.000       0.067          0.163
+      pay50 (mean/period) 0.228 0.020 0.053      0.000       0.067          0.150
+P(good next|good) vs |bad  [p2 resid > median]: {'p_good_after_good': 0.551, 'p_good_after_bad': 0.447, 'n_after_good': 423, 'n_after_bad': 425, 'fisher_p': 0.003}
