@@ -7,7 +7,7 @@ d=pd.read_pickle(B+'A2.pkl')
 feats=['dev_remaining_pct','top10_holder_pct','insider_pct_holders','bundler_pct_holders','sniper_count','sniper_pct_holders','cluster_max_pct','fresh_wallet_pct','insider_cluster_size','all_sr','ins_sr','early_sr','early_share','sm_share','ins_share','holder_count','time_since_launch_sec','liquidity_usd','market_cap_usd','smart_money_count','unique_buyers']
 for y,sub in [('dump4',d.nb>=2),('y2',d.y2.notna())]:
     x=d[sub].dropna(subset=[y]); tr=x[x.tr]; te=x[~x.tr]
-    m=HistGradientBoostingClassifier(max_depth=3,max_iter=150,learning_rate=0.05,random_state=0).fit(tr[feats],tr[y])
+    m=HistGradientBoostingClassifier(max_depth=3,max_iter=60,learning_rate=0.05,random_state=0).fit(tr[feats],tr[y])
     p=m.predict_proba(te[feats])[:,1]
     print(y,'n tr/te',len(tr),len(te),'GBM test AUC',round(roc_auc_score(te[y],p),3),'base',round(te[y].mean(),3))
     # daily AUC
@@ -15,7 +15,7 @@ for y,sub in [('dump4',d.nb>=2),('y2',d.y2.notna())]:
     print('  mean within-day AUC',round(np.average([u for u,_ in a],weights=[w for _,w in a]),3))
     for q in [.9,.95]:
         thr=np.quantile(p,q); f=te.p>=thr; print(f'  top{int((1-q)*100)}% by score: precision {te[y][f].mean():.3f} (base {te[y].mean():.3f}) n={f.sum()}')
-    r=permutation_importance(m,te[feats],te[y],n_repeats=3,random_state=0,scoring='roc_auc')
+    r=permutation_importance(m,te[feats],te[y],n_repeats=1,random_state=0,scoring='roc_auc')
     print('  perm imp:',', '.join(f'{f}:{v:.3f}' for f,v in sorted(zip(feats,r.importances_mean),key=lambda t:-t[1])[:8]))
 # single/pair threshold rules for dump4 chosen on train
 x=d[d.nb>=2].dropna(subset=['dump4']); tr=x[x.tr]; te=x[~x.tr]

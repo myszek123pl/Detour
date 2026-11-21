@@ -44,7 +44,7 @@ for nm,(b,s) in coh.items():
     for lab,df in [('train',t[t.tr]),('test',t[~t.tr]),('all',t)]:
         o,ne,nt=evstudy(df,b,s)
         ci=''
-        if lab=='all' and nm!='all': lo,hi=boot(df,b,s,60); ci=f' fwd1 95%CI[{lo:+.3f},{hi:+.3f}]'
+        if lab=='all' and nm!='all': lo,hi=boot(df,b,s,20); ci=f' fwd1 95%CI[{lo:+.3f},{hi:+.3f}]'
         print(f'{nm:8s}{lab:6s} events={ne:6d} tokens={nt:5d} prev={o["prev"]:+.3f} cur={o["cur"]:+.3f} fwd1={o["fwd1"]:+.3f} fwd2={o["fwd2"]:+.3f} min1={o["min1"]:+.3f} P(drop30 next)diff={o["drop30"]:+.3f}{ci}')
 # unconditional means
 print('uncond fwd1 mean',t.fwd1.mean().round(3),'drop30 rate',t.drop30.mean().round(3))
