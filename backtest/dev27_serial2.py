@@ -23,8 +23,8 @@ print(df.groupby('week').apply(lambda d:pd.Series({'n':len(d),'share_repeat_exan
 # is serial effect robust: logistic on n_before log + controls, train first 60% test last 40%
 from numpy.linalg import lstsq
 d=df[m].copy()
-d['f1']=np.log1p(d.n_before); d['f2']=d.prior_mean_y2.fillna(d.y2.mean()); d['f3']=np.log(d.trades_5); d['f4']=np.log(d.bs_ratio5.clip(.05,50)) if 'bs_ratio5' in d else 0
-d['f4']=np.log((d.buy_vol_5/(d.sell_vol_5+1)).clip(.05,50)); d['f5']=np.log(d.avg_5)
+d['f1']=np.log1p(d.n_before); d['f2']=d.prior_mean_y2.fillna(d.y2.mean()); d['f3']=np.log1p(d.trades_5); d['f4']=np.log(d.bs_ratio5.clip(.05,50)) if 'bs_ratio5' in d else 0
+d['f4']=np.log((d.buy_vol_5/(d.sell_vol_5+1)).clip(.05,50)); d['f5']=np.log1p(d.avg_5)
 cut=d.launch_unix.quantile(.6)
 X=['f1','f2','f3','f4','f5']
 import sys

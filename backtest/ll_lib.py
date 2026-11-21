@@ -2,6 +2,7 @@ import numpy as np, pandas as pd
 G='/tmp/claude-0/-home-user-Detour/3c13baf7-a0f4-5f68-b19b-e49e07781897/scratchpad/ll_grid.parquet'
 SPLIT=int(pd.Timestamp('2026-06-24',tz='UTC').timestamp())
 COST=0.025
+CLIP=10.0   # forward returns winsorised at +1000%
 rng=np.random.default_rng(7)
 def load():
     m=pd.read_parquet(G).sort_values(['token','b']).reset_index(drop=True)
@@ -22,6 +23,7 @@ def load():
         lastret=np.where(within,strict,idx_last/m.close-1)
         lastret=np.where((m.b+k)>gmax,np.nan,lastret)   # dataset-end censored
         m[f'l{k}']=lastret
+    for c in ['f1','f4','f16','l1','l4','l16']: m[c]=m[c].clip(upper=CLIP)
     vb=gb.volume.transform(lambda s:s.shift(1).rolling(8,min_periods=8).mean())
     m['vbase']=vb; m['vratio']=m.volume/vb.where(vb>0)
     m['lv']=np.log1p(m.volume); m['dlv']=m.lv-gb.lv.shift(1)

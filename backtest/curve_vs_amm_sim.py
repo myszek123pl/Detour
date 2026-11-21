@@ -389,7 +389,7 @@ def sec_d():
                 row.append("crosses grad"); continue
             nofee = slip_buy_curve(r, S, f=0.0)
             row.append(f"{x[0]:.2%} [{nofee[0]:.2%}]")
-        p = slip_buy_pool(S); pn = (lambda m: (m, m._pool_buy(S)))(None)
+        p = slip_buy_pool(S)
         m2 = Mkt(); m2.vs, m2.vt = VS_END, VT_END; m2._migrate(); pf = ((S) / (m2.pt - m2.pk/(m2.ps+S)))/ m2.price() - 1
         row.append(f"{p[0]:.2%} [{pf:.2%}]")
         rows.append(row)
