@@ -28,3 +28,28 @@ tryb papierowy, mikrokwoty, tysiące transakcji przed oceną, twarde limity stra
 ## Co dalej
 Najlepsze dane (Hugging Face: 33,6 mln transakcji; Zenodo RED-PUMP) wymagają odblokowania hostów:
 huggingface.co, hf.co, cdn-lfs.huggingface.co, cas-bridge.xethub.hf.co, zenodo.org.
+
+## Etap 2: analizy pogłębione (notatki 02–05, 20–29 w research_notes/Trading memecoinów backtest/)
+- Reguły wyjścia (10 962 kombinacji, walk-forward): 0 zyskownych w okresie testowym, nawet przy zerowych kosztach.
+  473 reguły „zarabiały” na danych uczących — klasyczne przeuczenie.
+- Cykl życia: 67% tokenów ma szczyt w pierwszej świecy 15m, 86% w 1 h; mediana po 24 h = 0,65× wejścia;
+  powrót do ceny wejścia po −50% tylko 6,6%.
+- Kto zarabia: 10,9% portfeli na plusie; 1% portfeli bierze 95% zysku brutto; jednorazowi kupujący −81%;
+  boty biorą 53% zysków, ale netto −15%; snajperzy −79%.
+- Różnica w wykonaniu: idealnie −7,2%, bot −26,7%, ręcznie −29,2% na transakcję (200 USD). Największy koszt to poślizg ceny.
+- Pump i dump: kupno po świecy pumpa → mediana −20% po 1 h, −38% po 4 h; 87% sprzedaży w pumpie robią ci, co kupili wcześniej.
+- Wolumen a cena: brak momentum, po +50% odwrócenie; jedyny sygnał (świeca ≥90% zakupów → +17% w 15 min)
+  znika przy opóźnieniu o 1 świecę i kłóci się z analizą przepływu zleceń — hipoteza, nie przewaga.
+- Przepływ zleceń: 1% transakcji = 52% wolumenu; 14–33% wolumenu to szybkie kupno+sprzedaż tego samego portfela.
+- Reżimy: dobre dni się grupują (r≈0,6), ale żaden dzień czerwca nie był zyskowny; stan rynku to hamulec, nie źródło zysku.
+- Deweloperzy/insiderzy: historia dewelopera nic nie przewiduje (AUC 0,52); flagi ostrzegawcze działają
+  (dev >20% podaży → 62–69% dumpów vs 38% bazowo).
+- Cechy z surowych transakcji: brak wiarygodnej przewagi; kolumny gotowego zrzutu danych zawierają podgląd przyszłości
+  (AUC 0,93–0,998), więc wynik ML z etapu 1 jest niewiarygodny.
+- Starty i calle: model podnosi trafienia 2× z 26% do 45%, ale zysk zależy od założonej straty przy chybieniu;
+  opóźnienie wejścia o 20% zamienia calle w stratę (−9%).
+
+## Wniosek końcowy
+Na wszystkich dostępnych danych nie ma wiarygodnej, powtarzalnej przewagi dla tradera z zewnątrz.
+Dane dobrze mówią, czego NIE robić: nie gonić pumpów, nie kupować tokenów z dużym udziałem dewelopera/snajperów,
+nie trzymać przegranych, trzymać małe pozycje względem płynności.
