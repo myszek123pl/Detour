@@ -111,11 +111,11 @@ def hmm_fit(k, n, K=2, inits=6, iters=200, seed=0, iid=False):
             for t in range(T - 1):
                 m = al[t][:, None] * A * (B[t + 1] * be[t + 1])[None, :]; xi += m / m.sum()
             ll = float((np.log(c) + mx[:, 0]).sum())
-            pi = gam[0]; p = np.clip((gam * k[:, None]).sum(0) / (gam * n[:, None]).sum(0), 1e-4, 1 - 1e-4)
+            pi = gam[0]; p = np.clip(((gam * k[:, None]).sum(0) + 1e-6) / ((gam * n[:, None]).sum(0) + 2e-6), 1e-4, 1 - 1e-4)
             if iid:
                 w = gam.sum(0) / T; A = np.tile(w, (K, 1)); pi = w
             else:
-                A = xi / np.maximum(xi.sum(1, keepdims=True), 1e-12)
+                xi = xi + 0.25; A = xi / xi.sum(1, keepdims=True)   # weak Dirichlet prior: no absorbing states
             if abs(ll - ll_old) < 1e-7: break
             ll_old = ll
         if best is None or ll > best["ll"]:
