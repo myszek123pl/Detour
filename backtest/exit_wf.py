@@ -117,7 +117,10 @@ if __name__ == "__main__":
     print("tokens", len(m), m.groupby(pd.cut(m.day, [0,10,15,20])).size().to_dict(), flush=True)
     cfgs = grid(); print("configs", len(cfgs), flush=True)
     cols = [f"{s}_{k}" for s in ("tr", "va", "te") for k in ("zero", "p50", "p200", "p1000")]
+    m.to_parquet(f"{OUT}/exit_tokens.parquet"); np.save(f"{OUT}/A.npy", A); np.save(f"{OUT}/REL.npy", REL)
+    import os
     for mode in ("worst", "best"):
+        if os.path.exists(f"{OUT}/exit_grid_{mode}.parquet"): continue
         with Pool(4, initializer=init, initargs=(A, REL, m, mode)) as pool:
             res = pool.map(work, cfgs, chunksize=40)
         df = pd.DataFrame(res, columns=cols)
