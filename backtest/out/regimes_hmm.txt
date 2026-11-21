@@ -1,0 +1,4 @@
+/home/user/Detour/backtest/regimes.py:131: RuntimeWarning: divide by zero encountered in divide
+  h = r["hmm"]; stay = np.diag(h["A"]); dur = 1 / (1 - stay)
+/home/user/Detour/backtest/regimes_lib.py:114: RuntimeWarning: invalid value encountered in divide
+  pi = gam[0]; p = np.clip((gam * k[:, None]).sum(0) / (gam * n[:, None]).sum(0), 1e-4, 1 - 1e-4)
