@@ -1,0 +1,60 @@
+### pair-level (U): distribution
+     pairs  med_pnl  mean_pnl  pct_profit  pct_any_sell  pct_no_sell  pct_profit_among_sellers  med_pnl_sellers  med_ratio_sellers  med_buy    net_M  gross_win_M  gross_loss_M      buyM
+0  6272114   -5.624   -75.362       0.107         0.326        0.674                     0.327           -3.446              0.861   14.245 -472.676      180.345      -653.021 1,849.174
+
+### pair-level (U): quantiles of pnl among all / among sellers
+                                                                                                                                                                         q_all
+0  [-767.961958242, -205.17301512, -105.30666662, -35.8074073, -5.623734530000002, -0.036775, 0.044162414000000205, 10.752251191499974, 277.52704470530045, 5211.033985219265]
+
+### pair q sellers
+                                                                                                                                                            q_ratio
+0  [0.03778030185544368, 0.18900205310395746, 0.521839159274978, 0.8610547942388481, 1.0734175514548754, 1.6337722683115095, 2.5428463861333173, 8.951664106548234]
+
+### pair-level mature tokens span>=6h
+    pairs  tokens  med_pnl  pct_profit  pct_no_sell    roi   net_M
+0  856117    7238   -4.259       0.122        0.658 -0.364 -97.742
+
+### pair-level young tokens span<1h
+     pairs  med_pnl  pct_profit  pct_no_sell    roi    net_M
+0  5089939   -5.145       0.104        0.678 -0.280 -361.960
+
+### pair-level ALL tokens incl non-conserving
+     pairs  med_pnl  pct_profit     net_M        gw       gl
+0  6601055   -4.695       0.119 1,759.890 2,419.818 -659.928
+
+### Gini of gross profits among winning pairs
+   gini       n
+0 0.933  669259
+
+### Gini of gross losses among losing pairs
+   gini        n
+0 0.910  5602739
+
+### Gini of position size (buy)
+   gini        n
+0 0.937  6272114
+
+### wallet-level (U)
+   wallets    med     mean  pct_profit                                                                                                                                             q     netM     gwM      glM
+0   711740 -8.521 -664.113       0.109  [-15486.6183026529, -1493.6231232925, -84.357067095, -8.521074705, -0.4200189525, 6.057797567499987, 1054.5878574800968, 31056.206499125565] -472.676 108.033 -580.709
+
+### wallet gini winners
+   gini      n
+0 0.962  77417
+
+### wallet gini losers
+   gini       n
+0 0.955  634319
+
+### wallet roi
+   roi_total  med_roi  avg(CAST(((pnl / buy) > 0) AS INTEGER))
+0     -0.256   -1.000                                    0.109
+
+### profit concentration
+     totM  top100M  top1kM  top1pctM  top01pctM  top7kM       n
+0 108.033   24.897  72.853   103.525     65.387 103.399  711740
+
+### loss concentration
+      totM  bot100M   bot1kM  bot1pctM  bot10pctM
+0 -580.709 -191.895 -256.103  -384.459   -550.502
+

@@ -1,0 +1,21 @@
+import duckdb,sys
+D=sys.argv[1]
+c=duckdb.connect()
+c.sql(f"create view tr as select * from read_parquet('{D}/trades-*.parquet')")
+c.sql(f"create view tkall as select * from read_parquet('{D}/tokens.parquet')")
+c.sql("create table tkset as select distinct token_address from tkall")
+c.sql("create table ext as select token_address, count(*) n, count(distinct wallet) w, sum(amount_usd) usd, min(ts) mn, max(ts) mx from tr anti join tkset using(token_address) group by 1")
+print(c.sql("select count(*), sum(n), sum(usd), median(n), quantile_cont(epoch(mx-mn),[.5,.9]), median(w) from ext"))
+print(c.sql("select n,count(*) from ext where n<=10 group by 1 order by 1"))
+print(c.sql("select count(distinct wallet) from tr anti join tkset using(token_address)"))
+print(c.sql("select count(distinct wallet) from tr semi join tkset using(token_address)"))
+print(c.sql("select min(mn),max(mx), count(*) filter (mn<'2026-06-01') from ext"))
+# holders vs buyers (core)
+c.sql("create table core as select token_address, min(captured_at::timestamptz) cap, max(holder_count) hc, max(unique_buyers) ub from tkall group by 1")
+print(c.sql("""select quantile_cont(b.nb/nullif(hc,0),[.1,.25,.5,.75,.9]) from core join (select token_address, count(distinct wallet) filter(side='buy') nb from tr group by 1) b using(token_address) where hc>20"""))
+# wallets table overlap
+c.sql(f"create view wl as select * from read_parquet('{D}/wallets.parquet')")
+print(c.sql("select wallet_type,count(*) from wl group by 1"))
+print(c.sql("describe wl"))
+print(c.sql("select count(distinct wallet) from (select distinct wallet from tr) semi join wl on wallet=wl.address"))
+print(c.sql("select count(*) from (select distinct wallet from read_parquet('%s/wallet_funding.parquet')) f join (select distinct wallet w2 from tr) t on f.wallet=t.w2"%D))
