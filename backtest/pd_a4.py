@@ -32,7 +32,7 @@ def role(r):
     return "late(post-trigger)"
 for c_ in ("fb","ft","f0","S","Tg","Pk"): WL[c_]=WL[c_].astype("float64")
 WL["role"]=np.where(WL.fb.isna(),"no_buy_logged",np.where(WL.fb<WL.S,"early(pre-start)",np.where(WL.fb<WL.Tg,"pump-phase buyer","late(post-trigger)")))
-WL["sell_win"]=WL.sell_pump+WL.sell_post1; WL["buy_win"]=WL.buy_pump+WL.buy_post.where(False,0)  # buys in pump phase only (post buys separate)
+WL["sell_win"]=WL.sell_pump+WL.sell_post1
 WL["buy_win"]=WL.buy_pump
 res={}
 def sellers(kind,sub,label):

@@ -5,7 +5,7 @@ c = duckdb.connect(W)
 c.sql("""create or replace table bars as
 with o as (select token_address tok, ts, arg_max(open,volume) open, arg_max(high,volume) high, arg_max(low,volume) low, arg_max(close,volume) close, max(volume) vol, count(*) ndup,
   min(open) mn_open, max(open) mx_open from oh group by 1,2),
-f as (select tok, (cast(ts as bigint)/900)*900 bts, sum(usd) filter (buy) b, sum(usd) filter (not buy) s, count(*) filter (buy) nb, count(*) filter (not buy) ns,
+f as (select tok, (cast(ts as bigint)//900)*900 bts, sum(usd) filter (buy) b, sum(usd) filter (not buy) s, count(*) filter (buy) nb, count(*) filter (not buy) ns,
   count(distinct wallet) nw, max(usd) mx from t group by 1,2),
 k as (select token_address tok, arg_min(liquidity_usd, captured_at) liq, arg_min(market_cap_usd, captured_at) mc, min(captured_at) cap from tk group by 1)
 select o.*, coalesce(f.b,0) b, coalesce(f.s,0) s, coalesce(f.nb,0) nb, coalesce(f.ns,0) ns, coalesce(f.nw,0) nw, coalesce(f.mx,0) mx, k.liq, k.mc, epoch(k.cap) cap
