@@ -1,0 +1,55 @@
+trades on tokens with OHLCV: 2384319
+train wallets scored: 121603 pop win rate 0.383 wallets n>=5: 21051 n>=10: 10248
+        group  wallets  next-week win rate (pooled)  share wallets pnl>0
+0      top 1%       58                        0.707                0.948
+1      top 5%      258                        0.646                0.946
+2     top 20%     1062                        0.606                0.897
+3  bottom 80%     3665                        0.368                0.482
+{'ours_top200': 200, 'ours_top1000': 1000, 'ours_top3000': 3000, 'gmgn_smart_money(leaky)': 1600, 'gmgn_winrate_top1600(leaky)': 1600, 'gmgn_winrate_top200(leaky)': 200, 'placebo_random1000': 1000}
+overlap ours_top1000 & gmgn_sm: 95  ours_top3000 & gmgn_sm: 302
+ours_top200 1 signals 662 tradable 411
+ours_top200 2 signals 248 tradable 148
+ours_top200 3 signals 86 tradable 58
+ours_top1000 1 signals 1240 tradable 748
+ours_top1000 2 signals 789 tradable 508
+ours_top1000 3 signals 507 tradable 344
+ours_top3000 1 signals 1849 tradable 1079
+ours_top3000 2 signals 1644 tradable 1076
+ours_top3000 3 signals 1392 tradable 973
+gmgn_smart_money(leaky) 1 signals 1605 tradable 1097
+gmgn_smart_money(leaky) 2 signals 1192 tradable 918
+gmgn_smart_money(leaky) 3 signals 857 tradable 705
+gmgn_winrate_top1600(leaky) 1 signals 1290 tradable 945
+gmgn_winrate_top1600(leaky) 2 signals 817 tradable 663
+gmgn_winrate_top1600(leaky) 3 signals 522 tradable 440
+gmgn_winrate_top200(leaky) 1 signals 502 tradable 408
+gmgn_winrate_top200(leaky) 2 signals 193 tradable 177
+gmgn_winrate_top200(leaky) 3 signals 98 tradable 92
+placebo_random1000 1 signals 1725 tradable 1196
+placebo_random1000 2 signals 1247 tradable 992
+placebo_random1000 3 signals 769 tradable 672
+                            set   k  signals  tradable
+0                   ours_top200   1      662       411
+1                   ours_top200   2      248       148
+2                   ours_top200   3       86        58
+3                  ours_top1000   1     1240       748
+4                  ours_top1000   2      789       508
+5                  ours_top1000   3      507       344
+6                  ours_top3000   1     1849      1079
+7                  ours_top3000   2     1644      1076
+8                  ours_top3000   3     1392       973
+9       gmgn_smart_money(leaky)   1     1605      1097
+10      gmgn_smart_money(leaky)   2     1192       918
+11      gmgn_smart_money(leaky)   3      857       705
+12  gmgn_winrate_top1600(leaky)   1     1290       945
+13  gmgn_winrate_top1600(leaky)   2      817       663
+14  gmgn_winrate_top1600(leaky)   3      522       440
+15   gmgn_winrate_top200(leaky)   1      502       408
+16   gmgn_winrate_top200(leaky)   2      193       177
+17   gmgn_winrate_top200(leaky)   3       98        92
+18           placebo_random1000   1     1725      1196
+19           placebo_random1000   2     1247       992
+20           placebo_random1000   3      769       672
+21          baseline_any_buyers   3     2149      1138
+22          baseline_any_buyers  10     2190      1210
+done
