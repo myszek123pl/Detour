@@ -44,10 +44,10 @@ for impact in ("liq", "fix15k"):
         ytr = (net(tr, tgt, impact) > 0).astype(int); yte = (net(te, tgt, impact) > 0).astype(int)
         for fsn, cols in FS.items():
             P = 0
-            for seed in range(5):
-                m = lgb.LGBMClassifier(n_estimators=300, learning_rate=0.03, num_leaves=15, min_child_samples=50, subsample=0.8,
+            for seed in range(3):
+                m = lgb.LGBMClassifier(n_estimators=200, n_jobs=4, learning_rate=0.03, num_leaves=15, min_child_samples=50, subsample=0.8,
                                        subsample_freq=1, colsample_bytree=0.7, verbose=-1, random_state=seed)
-                m.fit(tr[cols].astype(float), ytr); P = P + m.predict_proba(te[cols].astype(float))[:, 1] / 5
+                m.fit(tr[cols].astype(float), ytr); P = P + m.predict_proba(te[cols].astype(float))[:, 1] / 3
             auc = roc_auc_score(yte, P)
             if fsn == "trade" and impact == "fix15k" and tgt == "ladder_B":
                 imp = sorted(zip(cols, m.booster_.feature_importance("gain")), key=lambda z: -z[1])[:8]
@@ -59,7 +59,7 @@ for impact in ("liq", "fix15k"):
         # shuffled-label sanity (trade feats)
         P = 0
         for seed in range(3):
-            m = lgb.LGBMClassifier(n_estimators=300, learning_rate=0.03, num_leaves=15, min_child_samples=50, subsample=0.8, subsample_freq=1,
+            m = lgb.LGBMClassifier(n_estimators=200, n_jobs=4, learning_rate=0.03, num_leaves=15, min_child_samples=50, subsample=0.8, subsample_freq=1,
                                    colsample_bytree=0.7, verbose=-1, random_state=seed)
             m.fit(tr[tf].astype(float), np.random.default_rng(seed).permutation(ytr)); P = P + m.predict_proba(te[tf].astype(float))[:, 1] / 3
         sel = te[P >= np.quantile(P, .9)]; x = net(sel, tgt, impact)

@@ -36,7 +36,7 @@ mid=L.launch_unix.median(); a=L[L.launch_unix<mid].groupby('hour').y.mean(); b=L
 a=L[L.launch_unix<mid].groupby('dow').y.mean(); b=L[L.launch_unix>=mid].groupby('dow').y.mean(); print('dow corr halves',np.corrcoef(a,b)[0,1])
 base=['price_15','vol_5','trades_5','avg_5','buys_5','sells_5','buy_vol_5','sell_vol_5','vol_10','trades_10','avg_10','growth_10','buys_10','sells_10','buy_vol_10','sell_vol_10','vol_15','trades_15','avg_15','growth_15','buys_15','sells_15','buy_vol_15','sell_vol_15','launch_bucket','bs_ratio15','buy_share15','vol_late','bsv']
 devf=['dev_prev_n','dev_prev_hit_rate','dev_prev_meanlog']; tf=['hour','dow']
-P=dict(n_estimators=300,learning_rate=.03,num_leaves=15,min_child_samples=50,subsample=.8,subsample_freq=1,colsample_bytree=.8,verbose=-1,random_state=0)
+P=dict(n_estimators=200,n_jobs=4,max_bin=63,learning_rate=.03,num_leaves=15,min_child_samples=50,subsample=.8,subsample_freq=1,colsample_bytree=.8,verbose=-1,random_state=0)
 def wf(feats,step_days=14,minTrain=21):
     t0=L.launch_unix.min(); step=step_days*86400; out=[]; k=0; imp=np.zeros(len(feats))
     while True:
@@ -50,7 +50,7 @@ def wf(feats,step_days=14,minTrain=21):
     O=pd.concat(out); return O,pd.Series(imp/imp.sum(),index=feats).sort_values(ascending=False)
 def ev(s,tp,loss): 
     h=(s.multiple>=tp).mean(); return (h*tp+(1-h)*(1-loss))*FEE-1
-for name,f in [('base',base),('base+hour/dow',base+tf),('base+dev',base+devf),('all',base+tf+devf)]:
+for name,f in [('base',base),('all',base+tf+devf)]:
     O,imp=wf(f); R[f'wf_{name}_auc']=round(roc_auc_score(O.y,O.p),4)
     fa=O.groupby('fold').apply(lambda d:roc_auc_score(d.y,d.p)); 
     print('\n==',name,'pooled AUC',R[f'wf_{name}_auc'],'fold AUC min/med/max',fa.min().round(3),fa.median().round(3),fa.max().round(3),'folds',len(fa),'n_test',len(O),'base',O.y.mean().round(3))

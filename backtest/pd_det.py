@@ -10,6 +10,9 @@ Q=pd.read_parquet(f"{W}/pump_Q.parquet")
 Q["vlast_vs_prev"]=np.log1p(Q.v_last)-np.log1p(Q.v_prev)
 Q["log_kstart"]=np.log1p(Q.k_start)
 Q=Q[Q.fw>=8].copy()
+for c_ in Q.columns:
+    if str(Q[c_].dtype) in ("Int64","Float64","boolean"): Q[c_]=Q[c_].astype("float64")
+Q["age_min"]=Q.age_min.astype(float).fillna(0)
 Q["trap"]=((Q.fmax8<0.10)&(Q.r8<=-0.25)).astype(int)
 Q["retr"]=(Q.cls=="full_retrace").astype(int)
 Q["good"]=(Q.cls=="continue").astype(int)
@@ -24,7 +27,7 @@ def wf(feats,y,start=5,df=Q):
     for k in range(start,len(days)):
         d=days[k]; tr=df[df.t_trig+7200<=d.timestamp()]; te=df[df.day==d]
         if len(tr)<800 or len(te)==0: continue
-        m=lgb.train(PAR,lgb.Dataset(tr[feats],tr[y]),num_boost_round=250)
+        m=lgb.train(PAR,lgb.Dataset(tr[feats],tr[y]),num_boost_round=150)
         pr.loc[te.index]=m.predict(te[feats])
     return pr
 res={}
@@ -80,7 +83,7 @@ o["dec"]=pd.qcut(o.p,5,labels=False)
 emit("Candle model OOS by risk quintile",o.groupby("dec").agg(n=("p","size"),mean_p=("p","mean"),trap_rate=("trap","mean"),retrace=("retr","mean"),good=("good","mean"),mean_r1h=("r4","mean"),mean_r2h=("r8","mean"),med_r2h=("r8","median")))
 # buy-everything vs filter, plus "buy only lowest-risk quintile"
 # feature importance (final model on all)
-m=lgb.train(PAR,lgb.Dataset(Q[cand+snap],Q.trap),num_boost_round=250)
+m=lgb.train(PAR,lgb.Dataset(Q[cand+snap],Q.trap),num_boost_round=150)
 imp=pd.Series(m.feature_importance("gain"),index=cand+snap); emit("LightGBM gain importance (all data, descriptive)",(imp/imp.sum()).sort_values(ascending=False).head(12).to_frame("gain share"))
 # --- trade-feature subset: static time split
 T=Q[Q.tradeok].copy()

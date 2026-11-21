@@ -1,5 +1,6 @@
 """Selection + bootstrap for exit_wf.py output. Usage: python3 -I exit_wf_report.py <out_dir>"""
 import sys, json, numpy as np, pandas as pd
+sys.path.insert(0, "/home/user/Detour/backtest")
 sys.argv = [sys.argv[0], "", sys.argv[1]]
 import exit_wf as E
 OUT = sys.argv[2]

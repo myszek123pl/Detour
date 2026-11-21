@@ -22,6 +22,7 @@ def load():
         if i >= len(p) or p[i,0]-r.cap_ts > MAXD: continue
         s = p[i:]; s = s[s[:,0] < s[0,0]+HOR]
         if s[0,1] <= 0: continue
+        if len(s) > 1 and (s[1:,4]/np.maximum(s[:-1,4], 1e-30)).max() > 1000: continue  # price-glitch token (close jumps >1000x in one candle)
         rows.append((r, s))
     return t, rows
 
