@@ -1,0 +1,239 @@
+{
+  "method_version": 1,
+  "network": "solana",
+  "start_utc": "2026-11-21T11:00:21.802783+00:00",
+  "end_utc": "2026-11-21T11:05:42.862801+00:00",
+  "rounds": 5,
+  "duration_seconds": 321.060018,
+  "manifest": [
+    {
+      "file": "snapshot_000.json",
+      "size": 560921,
+      "sha256": "30660b1dc1b2d1e03181d57ea528694523b909998728ba10fe48ac4dd17a5cd3"
+    },
+    {
+      "file": "snapshot_001.json",
+      "size": 457607,
+      "sha256": "c9218edacfc506551019c375ddff596a4600570bba7ec0bc4f63a2847aafd21a"
+    },
+    {
+      "file": "snapshot_002.json",
+      "size": 682713,
+      "sha256": "8eb54316e6324dfc8e759d0cde7fa4e450ee0d8827b5e40266320a519082664a"
+    },
+    {
+      "file": "snapshot_003.json",
+      "size": 627152,
+      "sha256": "eb69327beae3b3bd09a8cb6adeafbe5cf1ebb381e50832839a97171b312724ce"
+    },
+    {
+      "file": "snapshot_004.json",
+      "size": 768109,
+      "sha256": "ffbc232d9168a0effde7449ecf75e660253cdad83898d76a4116b192a4cec999"
+    }
+  ],
+  "request_status_counts": {
+    "200": 55,
+    "429": 2,
+    "None": 1
+  },
+  "request_error_count": 3,
+  "max_http_cache_age_seconds": 53.0,
+  "max_abs_client_minus_http_date_seconds": 2.130223,
+  "expected_client_date": "2026-11-21",
+  "observed_client_dates": [
+    "2026-11-21"
+  ],
+  "client_date_consistent": true,
+  "per_round": [
+    {
+      "round": 0,
+      "start_utc": "2026-11-21T11:00:21.802783+00:00",
+      "end_utc": "2026-11-21T11:00:35.070393+00:00",
+      "new_distinct_pools": 51,
+      "oldest_creation_utc": "2026-11-21T10:56:49+00:00",
+      "newest_creation_utc": "2026-11-21T10:59:20+00:00",
+      "dex_counts": {
+        "meteora-damm-v2": 7,
+        "pump-fun": 39,
+        "meteora-dbc": 4,
+        "pumpswap": 1
+      },
+      "trending_n": 20,
+      "boost_visible_addresses": 23
+    },
+    {
+      "round": 1,
+      "start_utc": "2026-11-21T11:01:21.812388+00:00",
+      "end_utc": "2026-11-21T11:03:24.083356+00:00",
+      "new_distinct_pools": 46,
+      "oldest_creation_utc": "2026-11-21T10:57:49+00:00",
+      "newest_creation_utc": "2026-11-21T11:00:01+00:00",
+      "dex_counts": {
+        "meteora-damm-v2": 5,
+        "pump-fun": 33,
+        "pumpswap": 4,
+        "bags-fm": 1,
+        "meteora-dbc": 3
+      },
+      "trending_n": null,
+      "boost_visible_addresses": 23
+    },
+    {
+      "round": 2,
+      "start_utc": "2026-11-21T11:03:24.100355+00:00",
+      "end_utc": "2026-11-21T11:03:40.116401+00:00",
+      "new_distinct_pools": 55,
+      "oldest_creation_utc": "2026-11-21T11:00:08+00:00",
+      "newest_creation_utc": "2026-11-21T11:02:25+00:00",
+      "dex_counts": {
+        "pump-fun": 40,
+        "meteora-damm-v2": 7,
+        "stonkfun": 1,
+        "meteora-dbc": 3,
+        "pumpswap": 3,
+        "bags-fm": 1
+      },
+      "trending_n": 20,
+      "boost_visible_addresses": 23
+    },
+    {
+      "round": 3,
+      "start_utc": "2026-11-21T11:04:24.094281+00:00",
+      "end_utc": "2026-11-21T11:04:41.152916+00:00",
+      "new_distinct_pools": 41,
+      "oldest_creation_utc": "2026-11-21T11:01:20+00:00",
+      "newest_creation_utc": "2026-11-21T11:03:03+00:00",
+      "dex_counts": {
+        "pump-fun": 29,
+        "meteora-damm-v2": 5,
+        "pumpswap": 3,
+        "meteora-dbc": 3,
+        "stonkfun": 1
+      },
+      "trending_n": null,
+      "boost_visible_addresses": 23
+    },
+    {
+      "round": 4,
+      "start_utc": "2026-11-21T11:05:24.097525+00:00",
+      "end_utc": "2026-11-21T11:05:42.862801+00:00",
+      "new_distinct_pools": 51,
+      "oldest_creation_utc": "2026-11-21T11:02:25+00:00",
+      "newest_creation_utc": "2026-11-21T11:04:13+00:00",
+      "dex_counts": {
+        "pump-fun": 37,
+        "meteora-damm-v2": 9,
+        "meteora-dbc": 3,
+        "pumpswap": 2
+      },
+      "trending_n": 20,
+      "boost_visible_addresses": 23
+    }
+  ],
+  "new_pools": {
+    "initial_distinct": 51,
+    "union_distinct": 179,
+    "newly_seen_after_baseline": 128,
+    "observed_created_during_collection": 100,
+    "observed_created_per_minute": 18.688094635315196,
+    "observed_created_during_by_dex": {
+      "pump-fun": 72,
+      "meteora-damm-v2": 15,
+      "stonkfun": 1,
+      "meteora-dbc": 6,
+      "pumpswap": 5,
+      "bags-fm": 1
+    },
+    "interpretation": "Lower bound for pools observed by these API pages; not network launch rate or pump.fun mint rate."
+  },
+  "trending": {
+    "valid_snapshots": 3,
+    "missing_snapshots": 2,
+    "transitions": [
+      {
+        "from_round": 0,
+        "to_round": 2,
+        "elapsed_seconds": 182.172364,
+        "intersection": 14,
+        "union": 26,
+        "jaccard": 0.5384615384615384,
+        "retention": 0.7,
+        "entered": 6,
+        "exited": 6,
+        "mean_absolute_rank_change": 3.5714285714285716
+      },
+      {
+        "from_round": 2,
+        "to_round": 4,
+        "elapsed_seconds": 119.899751,
+        "intersection": 10,
+        "union": 30,
+        "jaccard": 0.3333333333333333,
+        "retention": 0.5,
+        "entered": 10,
+        "exited": 10,
+        "mean_absolute_rank_change": 8.5
+      }
+    ],
+    "first_last_intersection": 12,
+    "first_last_jaccard": 0.42857142857142855,
+    "first_last_retention": 0.6
+  },
+  "baseline_comparison": {
+    "discovered_token_count": 90,
+    "eligible_positive_liquidity_tokens": 44,
+    "excluded_missing_or_nonpositive_liquidity_tokens": 46,
+    "boost_visible": {
+      "n": 20,
+      "median_age_minutes": 8799.642839884758,
+      "median_liquidity_usd": 39765.31,
+      "median_volume_m5_usd": 184.77,
+      "median_quote_change_m5_pct": -1.45,
+      "forward_observed_n": 20,
+      "median_forward_quote_change_pct": -0.037850113550341735
+    },
+    "boost_unreported": {
+      "n": 24,
+      "median_age_minutes": 39282.78955758214,
+      "median_liquidity_usd": 168909.405,
+      "median_volume_m5_usd": 6852.12,
+      "median_quote_change_m5_pct": 0.11,
+      "forward_observed_n": 24,
+      "median_forward_quote_change_pct": 0.0
+    },
+    "pumpfun_or_pumpswap_pairs": 25,
+    "pumpfun_boost_visible": {
+      "n": 17,
+      "median_age_minutes": 8884.417839884758,
+      "median_liquidity_usd": 42285.59,
+      "median_volume_m5_usd": 388.1,
+      "median_quote_change_m5_pct": -1.56,
+      "forward_observed_n": 17,
+      "median_forward_quote_change_pct": -0.2027712064886611
+    },
+    "pumpfun_boost_unreported": {
+      "n": 8,
+      "median_age_minutes": 39282.78955758214,
+      "median_liquidity_usd": 157900.64,
+      "median_volume_m5_usd": 6211.055,
+      "median_quote_change_m5_pct": -0.145,
+      "forward_observed_n": 8,
+      "median_forward_quote_change_pct": -0.08791456962188304
+    },
+    "matched_n": 3,
+    "unmatched_boosted_n": 17,
+    "matched_forward_quote_difference_median_pp": 2.1521363241725266,
+    "quote_horizon_min_seconds": 301.511637,
+    "quote_horizon_max_seconds": 307.792408
+  },
+  "limitations": [
+    "Discovery-list selection bias; no representative launch census.",
+    "Pair age is not token age; a PumpSwap DEX venue alone does not prove a pump.fun origin.",
+    "Boost-unreported means no positive active field/current list membership; past advertising is unknown.",
+    "Matched DEX/age/liquidity does not remove confounding by pre-boost momentum, funding, or visibility.",
+    "HTTP cache age and non-simultaneous request times limit sub-minute resolution.",
+    "Observed quote-price changes exclude fees, price impact, failed fills, and executable depth.",
+    "No long-term profitability or causal effect of boosts can be inferred."
+  ]
+}

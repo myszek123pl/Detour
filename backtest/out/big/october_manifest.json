@@ -1,0 +1,131 @@
+{
+  "config": {
+    "tag": "october_v3",
+    "levels": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "latencies": [
+      1,
+      5,
+      30
+    ],
+    "rules": {
+      "time30_sl0.7": {
+        "sl": 0.7,
+        "tmax": 30
+      },
+      "time120_sl0.7": {
+        "sl": 0.7,
+        "tmax": 120
+      },
+      "br_sl0.7_tp1.25_h600": {
+        "sl": 0.7,
+        "tps": [
+          [
+            1.25,
+            1.0
+          ]
+        ],
+        "tmax": 600
+      },
+      "trail0.2_arm1.3_h600": {
+        "trail": 0.2,
+        "arm": 1.3,
+        "tmax": 600
+      }
+    },
+    "size_sol": 1.0,
+    "fee": 0.0125,
+    "tip_sol": 0.004285714285714286,
+    "limit_tokens": null,
+    "simlib_sha256": "1c4d93eb25ad5a0932a945d2c4030fb9c10049eab1668c9db19b2e57fd2a5d77",
+    "runner_sha256": "3588fbc81e1add382bb07f702b3b8ef6824db5745e3e02df1216f320112901ff",
+    "provenance": {
+      "repo": "pumpdatafun/pump-fun-trades-sample",
+      "revision": "c3a429fcd65f15e9ea1feca8a174e617b7e8f396",
+      "files": [
+        {
+          "path": "README.md",
+          "size": 17663,
+          "sha256": "8f25bcbb593782a3a8b142568ccb85fbcc4bf22ebe2b66936075415be79c1402"
+        },
+        {
+          "path": "data/pumpdata-2026-10-15-00000-of-00004.parquet",
+          "size": 434107440,
+          "sha256": "a0e7d54f3932df5d830b01ab0fbf02de3c20d983aec0b06a735c14faec2f417e"
+        },
+        {
+          "path": "data/pumpdata-2026-10-15-00001-of-00004.parquet",
+          "size": 423298207,
+          "sha256": "332447f205c663e7bf99194a0de6592bc34e38b414c19a1daa4ceee1e83370cd"
+        },
+        {
+          "path": "data/pumpdata-2026-10-15-00002-of-00004.parquet",
+          "size": 411630117,
+          "sha256": "b9d1cb7bd28768b98cf05d57c59f5400460c914b89f3e66433f7033daa3f5826"
+        },
+        {
+          "path": "data/pumpdata-2026-10-15-00003-of-00004.parquet",
+          "size": 215433902,
+          "sha256": "eec5d8bd44655e53b1fc6987ccbe749d845b6ad610878f7736a13d78fe527d33"
+        },
+        {
+          "path": "events/pumpdata-2026-10-15-events.parquet",
+          "size": 4580160,
+          "sha256": "37e2805de6af984c8488d4902bc624c9992541a0e131ec5f0e9e996cd631183b"
+        },
+        {
+          "path": "graduations/pumpdata-2026-10-15-graduations.parquet",
+          "size": 36388,
+          "sha256": "1dd5b4164ce1f8384d2b8ca9b7183f5f70175ce7b02ec6756bf38a1f7ec17bee"
+        },
+        {
+          "path": "launches/pumpdata-2026-10-15-launches.parquet",
+          "size": 3395760,
+          "sha256": "4bdfc3b08a376e4290a11e5a15731c47182009b23c7c4d51fdf3690812adf18f"
+        },
+        {
+          "path": "receipt.json",
+          "size": 494,
+          "sha256": "cc20f9b5607802958d56ea83fd153f74d0c96d036ece366b1c1a360c265b8aa5"
+        },
+        {
+          "path": "summary.json",
+          "size": 3861,
+          "sha256": "1bd9dfd464ac69e77f87d6848a9ef7750260e6ebb103ca728d64760c3084d404"
+        }
+      ],
+      "finished_at": "2026-11-21T16:16:43.782857+00:00"
+    },
+    "clock": "max_observed_block_ts_in_chain_order + 1 second; no future anchors",
+    "n_selected_tokens": 19346
+  },
+  "coverage": {
+    "no_crossing_0.1": 12815,
+    "no_crossing_0.3": 17570,
+    "no_crossing_0.5": 18506,
+    "signals_0.1": 6205,
+    "left_truncated_0.1": 326,
+    "signals_0.3": 1716,
+    "signals_0.5": 832,
+    "left_truncated_0.3": 60,
+    "left_truncated_0.5": 8
+  },
+  "elapsed_seconds": 22.327999999999975,
+  "generated_at": "2026-11-21T16:26:34.211001+00:00",
+  "outcome_rows": 210072,
+  "caveats": [
+    "One held-out ledger day, four rules fixed before reading outcome results. Not proof of stability across months.",
+    "Quality selection uses full paths retrospectively and cannot be a live entry filter.",
+    "trade_supported censors absence of supported later states; resolved-only means can be selection-biased.",
+    "ledger_day_coverage is a separate assumption: complete reported ledger coverage implies unchanged curve state between trades until midnight, for non-graduates. It disables the stale-state limit; missing events or Mayhem would invalidate it.",
+    "Graduation exits are censored_pool; pool pre-trade rows are not naively treated as post-trade states.",
+    "Block time upper-second convention adds up to one second of signal delay; actual block-time uncertainty remains.",
+    "Costs are declared assumptions. Observed failed attempts do not estimate our own fill probability.",
+    "Additive own-impact replay holds the other flow fixed, not an exchange execution guarantee.",
+    "Paired latency rows require all three outcomes resolved and are a selected common-support subset.",
+    "Intervals are descriptive 2000-replicate UTC-hour block bootstraps (seed42), conditional on the coverage model, with no multiple-comparison correction and only one observed day."
+  ]
+}

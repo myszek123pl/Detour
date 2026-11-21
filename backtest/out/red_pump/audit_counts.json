@@ -1,0 +1,198 @@
+{
+  "source": "https://zenodo.org/records/23018519",
+  "version": "v1.6",
+  "interpretation": "collector-generated terminal labels; neither platform graduation nor survival probabilities",
+  "archive": {
+    "bytes": 348529377,
+    "md5": "c9c056392d91646bc6af8e2a2794d2eb"
+  },
+  "internal_sha256": {
+    "verified_files": 71,
+    "failures": 0
+  },
+  "raw_launches": {
+    "rows": 860213,
+    "unique_mints": 860194,
+    "duplicate_rows_beyond_first_mint": 19,
+    "first_seen": "2026-05-08T17:17:38.493000+00:00",
+    "last_seen": "2026-06-10T18:11:08.532000+00:00",
+    "columns": [
+      "created_timestamp",
+      "description_length",
+      "has_telegram",
+      "has_twitter",
+      "has_website",
+      "initial_market_cap_sol",
+      "mint",
+      "name",
+      "seenAt",
+      "symbol",
+      "t"
+    ],
+    "rows_by_day_utc": {
+      "2026-05-08": 6481,
+      "2026-05-09": 21514,
+      "2026-05-10": 20713,
+      "2026-05-11": 21109,
+      "2026-05-12": 29623,
+      "2026-05-13": 29318,
+      "2026-05-14": 28741,
+      "2026-05-15": 27983,
+      "2026-05-16": 26020,
+      "2026-05-17": 25134,
+      "2026-05-18": 28727,
+      "2026-05-19": 25506,
+      "2026-05-20": 25508,
+      "2026-05-21": 28695,
+      "2026-05-22": 26954,
+      "2026-05-23": 21134,
+      "2026-05-24": 23147,
+      "2026-05-25": 27945,
+      "2026-05-26": 26208,
+      "2026-05-27": 28153,
+      "2026-05-28": 27900,
+      "2026-05-29": 27605,
+      "2026-05-30": 24774,
+      "2026-05-31": 23430,
+      "2026-06-01": 28163,
+      "2026-06-02": 27032,
+      "2026-06-03": 24657,
+      "2026-06-04": 26046,
+      "2026-06-05": 25916,
+      "2026-06-06": 24679,
+      "2026-06-07": 24782,
+      "2026-06-08": 28848,
+      "2026-06-09": 30282,
+      "2026-06-10": 17486
+    }
+  },
+  "raw_outcomes": {
+    "physical_data_lines": 833192,
+    "valid_rows": 833093,
+    "categories": {
+      "V1_8field": 49926,
+      "V1_8field_comma_in_symbol": 3,
+      "excluded_3fields_no_unique_label": 39,
+      "blank_physical_line": 21,
+      "excluded_6fields_no_unique_label": 1,
+      "V2_11field": 783030,
+      "excluded_9fields_no_unique_label": 38,
+      "V2_11field_comma_in_symbol": 134
+    },
+    "label_rows": {
+      "GRADUATED": 1652,
+      "TIMEOUT": 831441
+    },
+    "unique_mints": 833079,
+    "unique_mint_labels": {
+      "GRADUATED": 1638,
+      "TIMEOUT": 831427,
+      "CONFLICT": 14
+    },
+    "duplicate_rows_beyond_first_mint": 14,
+    "columns_in_header": [
+      "graduated_at",
+      "mint",
+      "symbol",
+      "outcome",
+      "minutes_to_outcome",
+      "initial_market_cap_sol",
+      "final_market_cap_sol",
+      "note",
+      "created_at_chain_iso",
+      "minutes_to_outcome_chain",
+      "detection_lag_min"
+    ],
+    "launch_mints_with_no_valid_terminal": 27115,
+    "terminal_mints_not_in_launches": 0
+  },
+  "raw_outcomes_multiline_recovery_sensitivity": {
+    "recovered_split_records": {
+      "legacy": 1,
+      "new": 38
+    },
+    "logical_label_rows": {
+      "GRADUATED": 1653,
+      "TIMEOUT": 831479
+    },
+    "logical_rows": 833132,
+    "unique_mints": 833118,
+    "unique_mint_labels": {
+      "GRADUATED": 1639,
+      "TIMEOUT": 831465,
+      "CONFLICT": 14
+    },
+    "launch_mints_with_no_recovered_terminal": 27076,
+    "qualification": "Adjacent raw physical fragments joined conservatively; distinct from the author's frozen analytical cohort and not a platform-outcome census"
+  },
+  "deposited_primary_cohort_recount": {
+    "rows": 749816,
+    "unique_mints": 749816,
+    "labels": {
+      "TIMEOUT": 748219,
+      "GRADUATED": 1597
+    },
+    "label_fraction": 0.002129855857970489,
+    "inferred_observable_minutes_quantiles": {
+      "0.0": 0.0,
+      "0.25": 1.4996666666666667,
+      "0.5": 1.5011666666666668,
+      "0.75": 2.5006666666666666,
+      "0.9": 3.500566666666667,
+      "0.99": 5.50035,
+      "1.0": 10.500883333333332
+    },
+    "reconstruction_violations": 43,
+    "violation_graduation_recorded_at_first_invisible_poll": 42,
+    "detected_in_collection_last_24h": {
+      "threshold": "2026-06-09T18:11:08.532000+00:00",
+      "rows": 56,
+      "labels": {
+        "GRADUATED": 56
+      }
+    },
+    "splits": {
+      "development": {
+        "rows": 387152,
+        "positive_labels": 794,
+        "label_fraction": 0.0020508740752985906
+      },
+      "validation": {
+        "rows": 362664,
+        "positive_labels": 803,
+        "label_fraction": 0.002214170692431562
+      }
+    }
+  },
+  "deposited_prediction_recalculation": {
+    "development": {
+      "rows": 387152,
+      "positive_labels": 794,
+      "AUROC": 0.859355123228332,
+      "Brier": 0.002027430397842159,
+      "probabilities_below_1e-8": 0,
+      "zero_probabilities": 0
+    },
+    "validation": {
+      "rows": 362664,
+      "positive_labels": 803,
+      "AUROC": 0.46416886825154163,
+      "Brier": 0.0022129275832094395,
+      "probabilities_below_1e-8": 286227,
+      "zero_probabilities": 39905,
+      "exclude_outcome_selected_last24h_sensitivity": {
+        "rows": 362608,
+        "positive_labels": 747,
+        "AUROC": 0.49484726373610655,
+        "Brier": 0.002058832593426147
+      }
+    }
+  },
+  "not_rebuilt": [
+    "model fitting",
+    "500-replicate bootstrap",
+    "true platform graduation ascertainment",
+    "wallet cohorts",
+    "survival curves"
+  ]
+}

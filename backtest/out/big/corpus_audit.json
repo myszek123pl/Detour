@@ -1,0 +1,535 @@
+{
+  "generated_at": "2026-11-21T11:08:06.689078+00:00",
+  "provenance": {
+    "repo": "jocry/Pumpfun_Memecoin_Corpus",
+    "revision": "bd8aed6452fb81665a74e6c308323f2c825dc82a",
+    "started_at": "2026-11-21T11:00:21.768783+00:00",
+    "files": [
+      {
+        "path": "KNOWN_ISSUES.md",
+        "size": 14974,
+        "expected_sha256": null,
+        "sha256": "82534ee226e1447e5ab0c0eb4b1b5453f0241aa5426d561b8f4b00314d1da299",
+        "fetched_at": "2026-11-21T11:00:22.092786+00:00"
+      },
+      {
+        "path": "README.md",
+        "size": 8253,
+        "expected_sha256": null,
+        "sha256": "0cd64ffd8c20b6aee2ecb70c956d47fa7a24e786f44c7c84f85b4c4fffbc7639",
+        "fetched_at": "2026-11-21T11:00:22.420788+00:00"
+      },
+      {
+        "path": "migrations.parquet",
+        "size": 480591,
+        "expected_sha256": "ef5d5141fd94acbcd121bed50e39e525cf7777d25338fc9852a67fd8a085105d",
+        "sha256": "ef5d5141fd94acbcd121bed50e39e525cf7777d25338fc9852a67fd8a085105d",
+        "fetched_at": "2026-11-21T11:00:22.996778+00:00"
+      },
+      {
+        "path": "postgard_outcomes.parquet",
+        "size": 984653,
+        "expected_sha256": "00a9980cb97630e9ea89574742f0e134d448e5566c5d7bda461f59bb02de022b",
+        "sha256": "00a9980cb97630e9ea89574742f0e134d448e5566c5d7bda461f59bb02de022b",
+        "fetched_at": "2026-11-21T11:00:23.082783+00:00"
+      },
+      {
+        "path": "postgard_snapshots.parquet",
+        "size": 89336038,
+        "expected_sha256": "34a63b8333a41b3cc84d05461febe725cf37842fa0e21d6ea00472dcdcfa1e72",
+        "sha256": "34a63b8333a41b3cc84d05461febe725cf37842fa0e21d6ea00472dcdcfa1e72",
+        "fetched_at": "2026-11-21T11:00:35.784912+00:00"
+      },
+      {
+        "path": "tokens.parquet",
+        "size": 214405469,
+        "expected_sha256": "c005d86d424013e5c78701161b025f3d8c3d472afb61466e0ad6fd5afe9e8ea6",
+        "sha256": "c005d86d424013e5c78701161b025f3d8c3d472afb61466e0ad6fd5afe9e8ea6",
+        "fetched_at": "2026-11-21T11:00:29.000153+00:00"
+      },
+      {
+        "path": "trades/trades-00000.parquet",
+        "size": 309225003,
+        "expected_sha256": "646f56bba13514a7aa2cdbaf5ac37499175d4e0a6d5bee07f7f7f96c7e481154",
+        "sha256": "646f56bba13514a7aa2cdbaf5ac37499175d4e0a6d5bee07f7f7f96c7e481154",
+        "fetched_at": "2026-11-21T11:00:33.591393+00:00"
+      },
+      {
+        "path": "trades/trades-00001.parquet",
+        "size": 302131922,
+        "expected_sha256": "93da769636d25d5541301b98f1f7039282556de00dbcd6e3ea7ef736c2b8bde0",
+        "sha256": "93da769636d25d5541301b98f1f7039282556de00dbcd6e3ea7ef736c2b8bde0",
+        "fetched_at": "2026-11-21T11:00:50.801397+00:00"
+      },
+      {
+        "path": "trades/trades-00002.parquet",
+        "size": 315910019,
+        "expected_sha256": "2e2d91f9c73fb247e53cbc368fb9c52e93bd113febe10aef3a30a8add0dca3cb",
+        "sha256": "2e2d91f9c73fb247e53cbc368fb9c52e93bd113febe10aef3a30a8add0dca3cb",
+        "fetched_at": "2026-11-21T11:00:40.672493+00:00"
+      },
+      {
+        "path": "trades/trades-00003.parquet",
+        "size": 326023114,
+        "expected_sha256": "14450a575d5896ddf8b6f9ce8e9f601b87d0ab9042ff2cb46445c1bdf6db9070",
+        "sha256": "14450a575d5896ddf8b6f9ce8e9f601b87d0ab9042ff2cb46445c1bdf6db9070",
+        "fetched_at": "2026-11-21T11:00:49.381951+00:00"
+      },
+      {
+        "path": "trades/trades-00004.parquet",
+        "size": 337238994,
+        "expected_sha256": "39e39b93691e124c801335e1ed454ed0c7bc1ace6e24456570af8d7a4c7fae47",
+        "sha256": "39e39b93691e124c801335e1ed454ed0c7bc1ace6e24456570af8d7a4c7fae47",
+        "fetched_at": "2026-11-21T11:01:01.098675+00:00"
+      },
+      {
+        "path": "trades/trades-00005.parquet",
+        "size": 336200197,
+        "expected_sha256": "e171c5121d1ca56df35289abac57e1bdf8c53761b00abdac6be084517046c387",
+        "sha256": "e171c5121d1ca56df35289abac57e1bdf8c53761b00abdac6be084517046c387",
+        "fetched_at": "2026-11-21T11:00:51.425923+00:00"
+      },
+      {
+        "path": "trades/trades-00006.parquet",
+        "size": 327678601,
+        "expected_sha256": "77627cdcd584e0bf97e6e62e3e9bccd2825cccfef0b7316371eedd2fa67705a0",
+        "sha256": "77627cdcd584e0bf97e6e62e3e9bccd2825cccfef0b7316371eedd2fa67705a0",
+        "fetched_at": "2026-11-21T11:00:57.381097+00:00"
+      },
+      {
+        "path": "trades/trades-00007.parquet",
+        "size": 340582742,
+        "expected_sha256": "c265053ef06620601ad6b2160177e0affba8423da70aeba13fecea2cc842d4c5",
+        "sha256": "c265053ef06620601ad6b2160177e0affba8423da70aeba13fecea2cc842d4c5",
+        "fetched_at": "2026-11-21T11:01:33.172641+00:00"
+      },
+      {
+        "path": "trades/trades-00008.parquet",
+        "size": 345035909,
+        "expected_sha256": "414500a26f1cf781f89f7a8430e77bfacfb279a974685abb67f7ff769cbec847",
+        "sha256": "414500a26f1cf781f89f7a8430e77bfacfb279a974685abb67f7ff769cbec847",
+        "fetched_at": "2026-11-21T11:05:32.639328+00:00"
+      },
+      {
+        "path": "trades/trades-00009.parquet",
+        "size": 348188211,
+        "expected_sha256": "a74896ca0de21cfaf489542dbb7fd95d3a222d8e808da163be1f2b6a5b4f48ea",
+        "sha256": "a74896ca0de21cfaf489542dbb7fd95d3a222d8e808da163be1f2b6a5b4f48ea",
+        "fetched_at": "2026-11-21T11:01:05.102052+00:00"
+      },
+      {
+        "path": "trades/trades-00010.parquet",
+        "size": 346867313,
+        "expected_sha256": "28c66eec063058a59fbb8844cc599096f6e51ba7111471bda01b7b3288b450ae",
+        "sha256": "28c66eec063058a59fbb8844cc599096f6e51ba7111471bda01b7b3288b450ae",
+        "fetched_at": "2026-11-21T11:01:23.107391+00:00"
+      },
+      {
+        "path": "trades/trades-00011.parquet",
+        "size": 344056976,
+        "expected_sha256": "ec51848bd92dcf21617055728ce615aafd004b25b20d14c11e67857b9022e6a8",
+        "sha256": "ec51848bd92dcf21617055728ce615aafd004b25b20d14c11e67857b9022e6a8",
+        "fetched_at": "2026-11-21T11:01:13.086218+00:00"
+      },
+      {
+        "path": "trades/trades-00012.parquet",
+        "size": 344549132,
+        "expected_sha256": "4652bbebdff44cbe785d5eddd46b1164f4ee572f79ce00879f20e978e2f4afa0",
+        "sha256": "4652bbebdff44cbe785d5eddd46b1164f4ee572f79ce00879f20e978e2f4afa0",
+        "fetched_at": "2026-11-21T11:01:25.694962+00:00"
+      },
+      {
+        "path": "trades/trades-00013.parquet",
+        "size": 348336049,
+        "expected_sha256": "c84e1ddc6f3898024fda0b779ef87ab58d93f13d50c1e2424a38a33dfdf843d2",
+        "sha256": "c84e1ddc6f3898024fda0b779ef87ab58d93f13d50c1e2424a38a33dfdf843d2",
+        "fetched_at": "2026-11-21T11:05:12.097660+00:00"
+      },
+      {
+        "path": "trades/trades-00014.parquet",
+        "size": 349075509,
+        "expected_sha256": "7e177f81732948ff8adcf07c6c762710fb39c154644f18834ec52ec925b51dd9",
+        "sha256": "7e177f81732948ff8adcf07c6c762710fb39c154644f18834ec52ec925b51dd9",
+        "fetched_at": "2026-11-21T11:05:24.901066+00:00"
+      },
+      {
+        "path": "trades/trades-00015.parquet",
+        "size": 347986099,
+        "expected_sha256": "d3b144b5cfea6046bfb9be5b940500406f0a05524af630365bd9523149f2238d",
+        "sha256": "d3b144b5cfea6046bfb9be5b940500406f0a05524af630365bd9523149f2238d",
+        "fetched_at": "2026-11-21T11:05:15.493431+00:00"
+      },
+      {
+        "path": "trades/trades-00016.parquet",
+        "size": 344312587,
+        "expected_sha256": "db90859dbd371141a6e8c2f673d478462ef79da2ace6a1bcfa6fa06e91c2a9a0",
+        "sha256": "db90859dbd371141a6e8c2f673d478462ef79da2ace6a1bcfa6fa06e91c2a9a0",
+        "fetched_at": "2026-11-21T11:05:19.714475+00:00"
+      },
+      {
+        "path": "trades/trades-00017.parquet",
+        "size": 27991939,
+        "expected_sha256": "3e48808f2ee97c7238af48446ef1ee2028b93fed58f11715dce6ef5a15fbe580",
+        "sha256": "3e48808f2ee97c7238af48446ef1ee2028b93fed58f11715dce6ef5a15fbe580",
+        "fetched_at": "2026-11-21T11:05:22.131964+00:00"
+      }
+    ],
+    "finished_at": "2026-11-21T11:05:32.641333+00:00"
+  },
+  "trades": {
+    "n": 33581765,
+    "distinct_ids": 33581765,
+    "mints": 622870,
+    "start_utc": "2026-06-05 09:12:28.604950+00:00",
+    "end_utc": "2026-07-14 15:02:54.115887+00:00",
+    "missing_reserves": 6122166,
+    "missing_sol_or_price": 2360061,
+    "suspect_volume": 1136321,
+    "provider_excluded_wallet_rows": 6690901,
+    "actual_system_program_rows": 0
+  },
+  "tokens": {
+    "n": 798430,
+    "unique_mints": 798430,
+    "provider_graduated": 5689,
+    "mayhem": 109561,
+    "suspect_concentration": 1486,
+    "first_detected": "2026-06-05 09:12:26.343743+00:00",
+    "last_detected": "2026-07-14 15:01:42.759724+00:00"
+  },
+  "by_day": [
+    {
+      "day_utc": "2026-06-05",
+      "n": 444647,
+      "mints": 8322,
+      "with_reserves": 331491,
+      "standard_invariant": 232093,
+      "missing_sol_or_price": 113097
+    },
+    {
+      "day_utc": "2026-06-06",
+      "n": 294070,
+      "mints": 6210,
+      "with_reserves": 192972,
+      "standard_invariant": 103163,
+      "missing_sol_or_price": 16887
+    },
+    {
+      "day_utc": "2026-06-07",
+      "n": 860943,
+      "mints": 18680,
+      "with_reserves": 753358,
+      "standard_invariant": 443195,
+      "missing_sol_or_price": 39669
+    },
+    {
+      "day_utc": "2026-06-08",
+      "n": 1363433,
+      "mints": 21841,
+      "with_reserves": 796683,
+      "standard_invariant": 503488,
+      "missing_sol_or_price": 78197
+    },
+    {
+      "day_utc": "2026-06-09",
+      "n": 1546396,
+      "mints": 23434,
+      "with_reserves": 605830,
+      "standard_invariant": 312998,
+      "missing_sol_or_price": 576642
+    },
+    {
+      "day_utc": "2026-06-10",
+      "n": 1377671,
+      "mints": 19377,
+      "with_reserves": 569849,
+      "standard_invariant": 355569,
+      "missing_sol_or_price": 585906
+    },
+    {
+      "day_utc": "2026-06-11",
+      "n": 1368809,
+      "mints": 22531,
+      "with_reserves": 784727,
+      "standard_invariant": 528915,
+      "missing_sol_or_price": 237853
+    },
+    {
+      "day_utc": "2026-06-12",
+      "n": 1227438,
+      "mints": 23961,
+      "with_reserves": 794004,
+      "standard_invariant": 501321,
+      "missing_sol_or_price": 118973
+    },
+    {
+      "day_utc": "2026-06-13",
+      "n": 908252,
+      "mints": 18933,
+      "with_reserves": 710838,
+      "standard_invariant": 456941,
+      "missing_sol_or_price": 35522
+    },
+    {
+      "day_utc": "2026-06-14",
+      "n": 1044421,
+      "mints": 21741,
+      "with_reserves": 744768,
+      "standard_invariant": 451896,
+      "missing_sol_or_price": 24812
+    },
+    {
+      "day_utc": "2026-06-15",
+      "n": 1233931,
+      "mints": 24643,
+      "with_reserves": 854880,
+      "standard_invariant": 573851,
+      "missing_sol_or_price": 34327
+    },
+    {
+      "day_utc": "2026-06-16",
+      "n": 1266559,
+      "mints": 25448,
+      "with_reserves": 828579,
+      "standard_invariant": 539933,
+      "missing_sol_or_price": 40588
+    },
+    {
+      "day_utc": "2026-06-17",
+      "n": 577165,
+      "mints": 12786,
+      "with_reserves": 331613,
+      "standard_invariant": 224227,
+      "missing_sol_or_price": 17825
+    },
+    {
+      "day_utc": "2026-06-18",
+      "n": 127101,
+      "mints": 621,
+      "with_reserves": 8363,
+      "standard_invariant": 7299,
+      "missing_sol_or_price": 0
+    },
+    {
+      "day_utc": "2026-06-19",
+      "n": 214938,
+      "mints": 6080,
+      "with_reserves": 193051,
+      "standard_invariant": 98487,
+      "missing_sol_or_price": 3776
+    },
+    {
+      "day_utc": "2026-06-20",
+      "n": 548036,
+      "mints": 15388,
+      "with_reserves": 542458,
+      "standard_invariant": 302146,
+      "missing_sol_or_price": 5103
+    },
+    {
+      "day_utc": "2026-06-21",
+      "n": 320977,
+      "mints": 9405,
+      "with_reserves": 228010,
+      "standard_invariant": 143899,
+      "missing_sol_or_price": 59651
+    },
+    {
+      "day_utc": "2026-06-22",
+      "n": 835792,
+      "mints": 24240,
+      "with_reserves": 746676,
+      "standard_invariant": 492939,
+      "missing_sol_or_price": 79494
+    },
+    {
+      "day_utc": "2026-06-23",
+      "n": 707221,
+      "mints": 19757,
+      "with_reserves": 565646,
+      "standard_invariant": 389306,
+      "missing_sol_or_price": 29299
+    },
+    {
+      "day_utc": "2026-06-24",
+      "n": 521589,
+      "mints": 11312,
+      "with_reserves": 328204,
+      "standard_invariant": 200290,
+      "missing_sol_or_price": 15569
+    },
+    {
+      "day_utc": "2026-06-25",
+      "n": 156452,
+      "mints": 5497,
+      "with_reserves": 131348,
+      "standard_invariant": 82103,
+      "missing_sol_or_price": 25012
+    },
+    {
+      "day_utc": "2026-06-26",
+      "n": 767471,
+      "mints": 22192,
+      "with_reserves": 710256,
+      "standard_invariant": 422457,
+      "missing_sol_or_price": 57210
+    },
+    {
+      "day_utc": "2026-06-27",
+      "n": 687371,
+      "mints": 20524,
+      "with_reserves": 666811,
+      "standard_invariant": 363557,
+      "missing_sol_or_price": 20556
+    },
+    {
+      "day_utc": "2026-06-28",
+      "n": 485050,
+      "mints": 21478,
+      "with_reserves": 472612,
+      "standard_invariant": 297879,
+      "missing_sol_or_price": 12436
+    },
+    {
+      "day_utc": "2026-06-29",
+      "n": 587169,
+      "mints": 20574,
+      "with_reserves": 576573,
+      "standard_invariant": 338741,
+      "missing_sol_or_price": 10590
+    },
+    {
+      "day_utc": "2026-06-30",
+      "n": 527906,
+      "mints": 19998,
+      "with_reserves": 515844,
+      "standard_invariant": 297978,
+      "missing_sol_or_price": 12030
+    },
+    {
+      "day_utc": "2026-07-01",
+      "n": 713035,
+      "mints": 25043,
+      "with_reserves": 694415,
+      "standard_invariant": 385084,
+      "missing_sol_or_price": 18615
+    },
+    {
+      "day_utc": "2026-07-02",
+      "n": 317252,
+      "mints": 10016,
+      "with_reserves": 315348,
+      "standard_invariant": 175774,
+      "missing_sol_or_price": 1903
+    },
+    {
+      "day_utc": "2026-07-04",
+      "n": 214575,
+      "mints": 2785,
+      "with_reserves": 212553,
+      "standard_invariant": 169531,
+      "missing_sol_or_price": 2019
+    },
+    {
+      "day_utc": "2026-07-05",
+      "n": 1170860,
+      "mints": 14402,
+      "with_reserves": 1168358,
+      "standard_invariant": 843905,
+      "missing_sol_or_price": 2497
+    },
+    {
+      "day_utc": "2026-07-06",
+      "n": 1513530,
+      "mints": 22798,
+      "with_reserves": 1504684,
+      "standard_invariant": 1027479,
+      "missing_sol_or_price": 8839
+    },
+    {
+      "day_utc": "2026-07-07",
+      "n": 1768405,
+      "mints": 22496,
+      "with_reserves": 1760722,
+      "standard_invariant": 1238989,
+      "missing_sol_or_price": 7675
+    },
+    {
+      "day_utc": "2026-07-08",
+      "n": 1172968,
+      "mints": 15113,
+      "with_reserves": 1170175,
+      "standard_invariant": 783531,
+      "missing_sol_or_price": 2831
+    },
+    {
+      "day_utc": "2026-07-09",
+      "n": 1827878,
+      "mints": 22821,
+      "with_reserves": 1821421,
+      "standard_invariant": 1281199,
+      "missing_sol_or_price": 6854
+    },
+    {
+      "day_utc": "2026-07-10",
+      "n": 1561402,
+      "mints": 17072,
+      "with_reserves": 1558625,
+      "standard_invariant": 1065317,
+      "missing_sol_or_price": 2889
+    },
+    {
+      "day_utc": "2026-07-11",
+      "n": 1181125,
+      "mints": 13834,
+      "with_reserves": 1180069,
+      "standard_invariant": 711256,
+      "missing_sol_or_price": 1960
+    },
+    {
+      "day_utc": "2026-07-13",
+      "n": 1211520,
+      "mints": 12462,
+      "with_reserves": 1202103,
+      "standard_invariant": 770497,
+      "missing_sol_or_price": 9967
+    },
+    {
+      "day_utc": "2026-07-14",
+      "n": 928407,
+      "mints": 9662,
+      "with_reserves": 885682,
+      "standard_invariant": 548521,
+      "missing_sol_or_price": 42988
+    }
+  ],
+  "by_source": [
+    {
+      "source": "pumpdev",
+      "n": 33581765,
+      "with_reserves": 27459599
+    }
+  ],
+  "state_alignment": [
+    {
+      "source": "pumpdev",
+      "n": 27456339,
+      "previous_delta_relative_error": 4.418728207781591e-14,
+      "next_delta_relative_error": 1.3897357194330406
+    }
+  ],
+  "postgrad": {
+    "n": 1392133,
+    "mints": 5701,
+    "first_snapshot": "2026-06-09 13:08:52.504717+00:00",
+    "last_snapshot": "2026-07-14 15:27:46.443891+00:00",
+    "incomplete": 48,
+    "with_price_and_reserves": 1002445
+  },
+  "interpretation": [
+    "Provider graduation timestamps are dataset annotations, not independently chain-verified events.",
+    "event_time/id order is collector order; it is not a slot/transaction-index replay.",
+    "The provider-excluded wallet is recorded as a data-quality exclusion; its identity is not independently established.",
+    "A corpus row count does not imply every row can support execution simulation."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "launches": {
+    "n": 46540,
+    "mints": 46540
+  },
+  "raw": [
+    {
+      "venue": "curve",
+      "failed": false,
+      "n": 4556524
+    },
+    {
+      "venue": "curve",
+      "failed": true,
+      "n": 10396021
+    },
+    {
+      "venue": "pumpswap",
+      "failed": false,
+      "n": 17245358
+    },
+    {
+      "venue": "pumpswap",
+      "failed": true,
+      "n": 10032507
+    }
+  ],
+  "duplicate_trade_keys": 0,
+  "curve": {
+    "rows": 4013534,
+    "mints": 51431,
+    "positive_reserves": 4013534,
+    "standard_invariant": 2519376
+  },
+  "eligible": {
+    "tokens": 19346,
+    "raw_curve_rows": 2286485,
+    "observed_completions": 344
+  },
+  "excluded_launches": 27194,
+  "clock_adjusted_rows": 0,
+  "prepared_rows": 2286485,
+  "end_exclusive_utc": 1792108800.0
+}

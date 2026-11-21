@@ -1,0 +1,162 @@
+{
+  "audit": "coverage_only_not_strategy_backtest",
+  "created_at_utc": "2026-11-21T11:09:28.883630+00:00",
+  "dataset": "jocry/Pumpfun_Memecoin_Corpus",
+  "duckdb_version": "2.0.1",
+  "rules": {
+    "wood_age_proxy_seconds": 172800,
+    "wood_entry_freshness_seconds": 1800,
+    "satsdats_market_cap_usd_inclusive": [
+      5000000,
+      10000000
+    ],
+    "ema_warmup_completed_hours": 9,
+    "hourly_close_max_staleness_seconds": 300,
+    "valid_snapshot": "price_usd>0 AND NOT incomplete_data AND timestamp>=graduated_at",
+    "important": "detected_at is not independently verified on-chain creation time; snapshots are not executed OHLCV/trades"
+  },
+  "dataset_revision": "bd8aed6452fb81665a74e6c308323f2c825dc82a",
+  "input_sha256_from_download_manifest": {
+    "migrations.parquet": "ef5d5141fd94acbcd121bed50e39e525cf7777d25338fc9852a67fd8a085105d",
+    "postgard_outcomes.parquet": "00a9980cb97630e9ea89574742f0e134d448e5566c5d7bda461f59bb02de022b",
+    "postgard_snapshots.parquet": "34a63b8333a41b3cc84d05461febe725cf37842fa0e21d6ea00472dcdcfa1e72",
+    "tokens.parquet": "c005d86d424013e5c78701161b025f3d8c3d472afb61466e0ad6fd5afe9e8ea6"
+  },
+  "tokens": {
+    "rows": 798430,
+    "unique_mints": 798430,
+    "first_detected_utc": "2026-06-05 09:12:26.343743+00",
+    "last_detected_utc": "2026-07-14 15:01:42.759724+00",
+    "labeled_graduated": 5689,
+    "mayhem": 109561,
+    "concentration_suspect": 1486
+  },
+  "snapshot_table": {
+    "rows": 1392133,
+    "unique_mints": 5701,
+    "first_snapshot_utc": "2026-06-09 13:08:52.504717+00",
+    "last_snapshot_utc": "2026-07-14 15:27:46.443891+00",
+    "incomplete_rows": 48,
+    "positive_price_rows": 1392085,
+    "positive_market_cap_rows": 1392085,
+    "positive_fdv_rows": 1392085,
+    "positive_liquidity_rows": 1002433,
+    "max_reported_market_cap_usd": 15304996.0
+  },
+  "joined": {
+    "rows": 1392080,
+    "unique_mints": 5697,
+    "valid_rows": 1391919,
+    "valid_mints": 5689,
+    "rows_before_recorded_graduation": 0,
+    "rows_before_detected": 0,
+    "min_age_detection_s": 1.3542721271514893,
+    "max_age_detection_s": 2147151.4386222363
+  },
+  "wood_coverage": {
+    "any_snapshot_at_or_after_48h": 769,
+    "valid_price_at_or_after_48h": 768,
+    "valid_price_first_30min_after_48h": 661,
+    "priced_liquid_active_first_30min_after_48h": 268,
+    "valid_price_at_or_after_72h": 123,
+    "valid_price_at_or_after_9days": 16,
+    "candidate_with_later_price_at_least_24h_after_first_48h_entry": 15
+  },
+  "satsdats_coverage": {
+    "rows_in_market_cap_band": 223,
+    "mints_in_market_cap_band": 9,
+    "valid_rows_in_market_cap_band": 223,
+    "valid_mints_in_market_cap_band": 9,
+    "priced_liquid_active_mints_in_band": 9,
+    "mints_with_fdv_in_band_not_a_substitute_for_market_cap": 9
+  },
+  "hourly_snapshot_coverage": {
+    "observed_token_hours": 212329,
+    "mints": 5689,
+    "close_proxy_fresh_within_5min_hours": 74811
+  },
+  "satsdats_first_entry_warmup": {
+    "first_entry_mints": 9,
+    "with_9_consecutive_observed_closed_hours": 3,
+    "with_9_consecutive_fresh_closed_hour_proxies": 0
+  },
+  "satsdats_first_observed_entry_dates_utc": [
+    {
+      "date_utc": "2026-06-30",
+      "mints": 2
+    },
+    {
+      "date_utc": "2026-07-01",
+      "mints": 1
+    },
+    {
+      "date_utc": "2026-07-04",
+      "mints": 1
+    },
+    {
+      "date_utc": "2026-07-06",
+      "mints": 1
+    },
+    {
+      "date_utc": "2026-07-07",
+      "mints": 1
+    },
+    {
+      "date_utc": "2026-07-08",
+      "mints": 2
+    },
+    {
+      "date_utc": "2026-07-14",
+      "mints": 1
+    }
+  ],
+  "postgrad_coverage_by_age": [
+    {
+      "max_valid_age": "1-9h",
+      "mints": 200
+    },
+    {
+      "max_valid_age": "24-48h",
+      "mints": 3891
+    },
+    {
+      "max_valid_age": "48-72h",
+      "mints": 645
+    },
+    {
+      "max_valid_age": "9-24h",
+      "mints": 814
+    },
+    {
+      "max_valid_age": "<1h",
+      "mints": 16
+    },
+    {
+      "max_valid_age": ">=72h",
+      "mints": 123
+    }
+  ],
+  "outcome_label_coverage": {
+    "rows": 5669,
+    "labeled_liquid_at_24h": 1758,
+    "labeled_liquid_at_48h": 6,
+    "peak_cap_in_band_not_entry_signal": 5
+  },
+  "migration_address_coverage": {
+    "rows": 5701,
+    "sentinel_addresses": 1449,
+    "missing_addresses": 1531
+  },
+  "preexisting_script_audit": {
+    "p01_universe.py": "frame is graduated-only, found-pair backfill; U plus high-early-cap H stratum is not a uniform launch cohort; files point to another session",
+    "p02_fetch.py": "hourly OHLCV cannot resolve 1/5/30-second execution; fetch-time now and pagination/retention can alter coverage",
+    "plib.py": "reference age is graduation timestamp, not creation; fixed 1e9 supply and price-derived liquidity; missing hours forward-filled; NOW constant",
+    "run_filters.py": "tests early 15-minute bars, not 48-hour/5-10m cohort; concentration flags require point-in-time provenance"
+  },
+  "verdict": {
+    "wood_exact_strategy_tested": false,
+    "satsdats_exact_strategy_tested": false,
+    "pnl_estimated": false,
+    "reason": "coverage counts do not reconstruct discretionary entry filters or executable prices; necessary price-history conditions must be checked before any return test"
+  }
+}

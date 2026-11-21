@@ -1,0 +1,473 @@
+{
+  "policy": {
+    "frozen_at_utc": "2026-11-21T16:26:22Z",
+    "selection_latency": 1,
+    "minimum_fills": 300,
+    "minimum_resolved": 300,
+    "minimum_resolved_fraction": 0.9,
+    "score": "largest training-only mean of resolved returns; ties by lv then rule_id",
+    "training_purge": "decision_t + maximum_horizon + 2*maximum_latency <= train_end",
+    "bootstrap_unit": "UTC decision day",
+    "bootstrap_replicates": 2000,
+    "seed": 20261121,
+    "filters_frozen": [
+      "all",
+      "creator_no_sell",
+      "buyers_ge8",
+      "top3_lt0.7",
+      "buy_ratio60_ge0.6",
+      "complete_observed_sol",
+      "combined"
+    ],
+    "censor_sensitivity": "Assign each filled-but-unresolved return -1; scenario, NOT a lower bound."
+  },
+  "generated_at": "2026-11-21T16:30:02.281060+00:00",
+  "replay_manifest_sha256": "2a28e5a69a8c33fa41a13394813a711672d08b021dd4ebe918923aaf1f1df3b2",
+  "full_replay_outcomes": 16272480,
+  "n_candidates": 224,
+  "n_eligible": 27,
+  "selected": {
+    "lv": 0.5,
+    "rule_id": 9,
+    "n_signals": 1580,
+    "n_filled": 1561,
+    "n_resolved": 1508,
+    "mean_resolved": -0.04185823608944441,
+    "sum_resolved": -63.122220022882175,
+    "coverage": 0.9660474055092889,
+    "eligible": true,
+    "rule": "br_sl0.85_tp1.25"
+  },
+  "highest_train_resolved_only_diagnostic": {
+    "lv": 0.2,
+    "rule_id": 15,
+    "n_signals": 29324,
+    "n_filled": 26215,
+    "n_resolved": 1117,
+    "mean_resolved": 0.8338647893373737,
+    "sum_resolved": 931.4269696898465,
+    "coverage": 0.042609193209994276,
+    "eligible": false,
+    "rule": "trail0.1_arm2.0"
+  },
+  "reviews": {
+    "coverage_gate_training_selection": {
+      "lv": 0.5,
+      "rule_id": 9,
+      "rule": "br_sl0.85_tp1.25",
+      "slices": {
+        "train_lat1": {
+          "n_signals": 1580,
+          "n_filled": 1561,
+          "n_no_fill": 19,
+          "n_resolved": 1508,
+          "n_censored": 53,
+          "coverage": 0.9660474055092889,
+          "mean_resolved": -0.04185823608944441,
+          "median_resolved": -0.09629533117393625,
+          "wins": 723,
+          "win_fraction_resolved": 0.47944297082228116,
+          "missing_minus100pct_scenario": -0.07438963486411414,
+          "mean_without_top1_positive": -0.042686262604191755,
+          "top1_share_positive": 0.007551799632319562,
+          "mean_without_top5_positive": -0.0447393041274766,
+          "top5_share_positive": 0.025805302165419795,
+          "ci95": [
+            -0.08842291844320752,
+            -0.027118794254099278
+          ],
+          "n_days": 13,
+          "positive_days": 1,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "train_lat5": {
+          "n_signals": 1580,
+          "n_filled": 1552,
+          "n_no_fill": 28,
+          "n_resolved": 1483,
+          "n_censored": 69,
+          "coverage": 0.9555412371134021,
+          "mean_resolved": -0.04410587496998807,
+          "median_resolved": -0.023675407315004126,
+          "wins": 730,
+          "win_fraction_resolved": 0.49224544841537426,
+          "missing_minus100pct_scenario": -0.08660374521938938,
+          "mean_without_top1_positive": -0.04484756830275792,
+          "top1_share_positive": 0.006405884458844981,
+          "mean_without_top5_positive": -0.0474084076566,
+          "top5_share_positive": 0.028296670643434604,
+          "ci95": [
+            -0.09446857104037075,
+            -0.03590653720687881
+          ],
+          "n_days": 13,
+          "positive_days": 1,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "train_lat30": {
+          "n_signals": 1580,
+          "n_filled": 1519,
+          "n_no_fill": 61,
+          "n_resolved": 1333,
+          "n_censored": 186,
+          "coverage": 0.8775510204081632,
+          "mean_resolved": -0.09866434078602361,
+          "median_resolved": -0.08064349120164387,
+          "wins": 572,
+          "win_fraction_resolved": 0.4291072768192048,
+          "missing_minus100pct_scenario": -0.20903197252651054,
+          "mean_without_top1_positive": -0.09987390706166036,
+          "top1_share_positive": 0.009979863808497413,
+          "mean_without_top5_positive": -0.10392251570837076,
+          "top5_share_positive": 0.04282024205144947,
+          "ci95": [
+            -0.13805589107289246,
+            -0.0912869917141207
+          ],
+          "n_days": 13,
+          "positive_days": 0,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "test_lat1": {
+          "n_signals": 2085,
+          "n_filled": 2075,
+          "n_no_fill": 10,
+          "n_resolved": 2050,
+          "n_censored": 25,
+          "coverage": 0.9879518072289156,
+          "mean_resolved": -0.03889920724928417,
+          "median_resolved": -0.020302278217820668,
+          "wins": 1014,
+          "win_fraction_resolved": 0.4946341463414634,
+          "missing_minus100pct_scenario": -0.05047873487278677,
+          "mean_without_top1_positive": -0.03931469970907717,
+          "top1_share_positive": 0.003692833278316155,
+          "mean_without_top5_positive": -0.040727724297858044,
+          "top5_share_positive": 0.016112397390397493,
+          "ci95": [
+            -0.05221953764070007,
+            -0.022347055367026997
+          ],
+          "n_days": 6,
+          "positive_days": 0,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "test_lat5": {
+          "n_signals": 2085,
+          "n_filled": 2073,
+          "n_no_fill": 12,
+          "n_resolved": 2016,
+          "n_censored": 57,
+          "coverage": 0.9725036179450073,
+          "mean_resolved": -0.042103128723277795,
+          "median_resolved": 0.022791271807157537,
+          "wins": 1034,
+          "win_fraction_resolved": 0.5128968253968254,
+          "missing_minus100pct_scenario": -0.06844182706518477,
+          "mean_without_top1_positive": -0.04285693165344235,
+          "top1_share_positive": 0.006608632574516881,
+          "mean_without_top5_positive": -0.0446013899652001,
+          "top5_share_positive": 0.021540060358159686,
+          "ci95": [
+            -0.057330195019405186,
+            -0.030985681438181378
+          ],
+          "n_days": 6,
+          "positive_days": 0,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "test_lat30": {
+          "n_signals": 2085,
+          "n_filled": 2042,
+          "n_no_fill": 43,
+          "n_resolved": 1848,
+          "n_censored": 194,
+          "coverage": 0.9049951028403526,
+          "mean_resolved": -0.0697179068303459,
+          "median_resolved": -0.0459907794432078,
+          "wins": 850,
+          "win_fraction_resolved": 0.45995670995670995,
+          "missing_minus100pct_scenario": -0.1580992614213904,
+          "mean_without_top1_positive": -0.0720531705566054,
+          "top1_share_positive": 0.017900902736595004,
+          "mean_without_top5_positive": -0.07701876653780242,
+          "top5_share_positive": 0.055290318375351546,
+          "ci95": [
+            -0.09169966891435069,
+            -0.05165065792448308
+          ],
+          "n_days": 6,
+          "positive_days": 0,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        }
+      },
+      "paired": {
+        "train": {
+          "n_common": 1327,
+          "means": {
+            "1": -0.024111684320016362,
+            "5": -0.0221777024522939,
+            "30": -0.09884110171817119
+          },
+          "mean_delta5_minus1": 0.0019339818677224692,
+          "mean_delta30_minus1": -0.07472941739815482,
+          "interpretation": "Same token, level and rule; conditional common resolved support, not a population effect."
+        },
+        "test": {
+          "n_common": 1843,
+          "means": {
+            "1": -0.019918567289887383,
+            "5": -0.01676939100187299,
+            "30": -0.07098943133426487
+          },
+          "mean_delta5_minus1": 0.0031491762880144,
+          "mean_delta30_minus1": -0.05107086404437749,
+          "interpretation": "Same token, level and rule; conditional common resolved support, not a population effect."
+        }
+      }
+    },
+    "resolved_only_diagnostic_NOT_qualified": {
+      "lv": 0.2,
+      "rule_id": 15,
+      "rule": "trail0.1_arm2.0",
+      "slices": {
+        "train_lat1": {
+          "n_signals": 29324,
+          "n_filled": 26215,
+          "n_no_fill": 3109,
+          "n_resolved": 1117,
+          "n_censored": 25098,
+          "coverage": 0.042609193209994276,
+          "mean_resolved": 0.8338647893373736,
+          "median_resolved": 0.8146532951422176,
+          "wins": 1033,
+          "win_fraction_resolved": 0.9247985675917636,
+          "missing_minus100pct_scenario": -0.9218605008701183,
+          "mean_without_top1_positive": 0.8284660449977358,
+          "top1_share_positive": 0.007051398829609692,
+          "mean_without_top5_positive": 0.8213478563558974,
+          "top5_share_positive": 0.018595906506093905,
+          "ci95": [
+            0.3581513278477642,
+            0.8747337850003336
+          ],
+          "n_days": 24,
+          "positive_days": 12,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "train_lat5": {
+          "n_signals": 29324,
+          "n_filled": 23146,
+          "n_no_fill": 6178,
+          "n_resolved": 1083,
+          "n_censored": 22063,
+          "coverage": 0.04678994210662749,
+          "mean_resolved": 0.8105997785555837,
+          "median_resolved": 0.8155036390597227,
+          "wins": 982,
+          "win_fraction_resolved": 0.9067405355493998,
+          "missing_minus100pct_scenario": -0.9152821411831117,
+          "mean_without_top1_positive": 0.8042590348503007,
+          "top1_share_positive": 0.008297223804669953,
+          "mean_without_top5_positive": 0.7969303534917361,
+          "top5_share_positive": 0.02032170027733029,
+          "ci95": [
+            0.4268344579379752,
+            0.8596914319246062
+          ],
+          "n_days": 29,
+          "positive_days": 21,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "train_lat30": {
+          "n_signals": 29324,
+          "n_filled": 18854,
+          "n_no_fill": 10470,
+          "n_resolved": 912,
+          "n_censored": 17942,
+          "coverage": 0.048371698313355256,
+          "mean_resolved": 0.720269377959502,
+          "median_resolved": 0.7755274103363492,
+          "wins": 742,
+          "win_fraction_resolved": 0.8135964912280702,
+          "missing_minus100pct_scenario": -0.9167876486316396,
+          "mean_without_top1_positive": 0.716966774973616,
+          "top1_share_positive": 0.005229570142453723,
+          "mean_without_top5_positive": 0.7049708914944206,
+          "top5_share_positive": 0.02451033480060456,
+          "ci95": [
+            0.4108350903213359,
+            0.7929566652345249
+          ],
+          "n_days": 30,
+          "positive_days": 28,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "test_lat1": {
+          "n_signals": 5690,
+          "n_filled": 5685,
+          "n_no_fill": 5,
+          "n_resolved": 1498,
+          "n_censored": 4187,
+          "coverage": 0.2635004397537379,
+          "mean_resolved": 0.8744324907941783,
+          "median_resolved": 0.8325243311686217,
+          "wins": 1441,
+          "win_fraction_resolved": 0.9619492656875834,
+          "missing_minus100pct_scenario": -0.5060862143870397,
+          "mean_without_top1_positive": 0.8724761106985228,
+          "top1_share_positive": 0.002835386796862009,
+          "mean_without_top5_positive": 0.8669066326433067,
+          "top5_share_positive": 0.011636583093351782,
+          "ci95": [
+            0.8594942539416875,
+            0.8963078351166822
+          ],
+          "n_days": 6,
+          "positive_days": 6,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "test_lat5": {
+          "n_signals": 5690,
+          "n_filled": 5679,
+          "n_no_fill": 11,
+          "n_resolved": 1358,
+          "n_censored": 4321,
+          "coverage": 0.23912660679697129,
+          "mean_resolved": 0.8494930140429985,
+          "median_resolved": 0.832815045844288,
+          "wins": 1287,
+          "win_fraction_resolved": 0.9477172312223858,
+          "missing_minus100pct_scenario": -0.5577370112571945,
+          "mean_without_top1_positive": 0.846636896830184,
+          "top1_share_positive": 0.003963596013855467,
+          "mean_without_top5_positive": 0.8393476087048617,
+          "top5_share_positive": 0.015076990820993164,
+          "ci95": [
+            0.8203728494930477,
+            0.8685643507701839
+          ],
+          "n_days": 6,
+          "positive_days": 6,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        },
+        "test_lat30": {
+          "n_signals": 5690,
+          "n_filled": 5613,
+          "n_no_fill": 77,
+          "n_resolved": 1022,
+          "n_censored": 4591,
+          "coverage": 0.18207732050596828,
+          "mean_resolved": 0.8339681969379045,
+          "median_resolved": 0.8710676515249458,
+          "wins": 907,
+          "win_fraction_resolved": 0.8874755381604696,
+          "missing_minus100pct_scenario": -0.6660759848083844,
+          "mean_without_top1_positive": 0.8300795238882072,
+          "top1_share_positive": 0.005277633429388673,
+          "mean_without_top5_positive": 0.8169380966069942,
+          "top5_share_positive": 0.02360663901871911,
+          "ci95": [
+            0.7876362349516516,
+            0.8999977553667146
+          ],
+          "n_days": 6,
+          "positive_days": 6,
+          "caution": "Conditional on observed exits; not corrected for selection or informative censoring."
+        }
+      },
+      "paired": {
+        "train": {
+          "n_common": 592,
+          "means": {
+            "1": 0.9358009507568849,
+            "5": 0.9621415939871074,
+            "30": 0.8919976932420944
+          },
+          "mean_delta5_minus1": 0.026340643230222487,
+          "mean_delta30_minus1": -0.04380325751479028,
+          "interpretation": "Same token, level and rule; conditional common resolved support, not a population effect."
+        },
+        "test": {
+          "n_common": 867,
+          "means": {
+            "1": 0.9404143320000022,
+            "5": 0.9270196133440105,
+            "30": 0.873494811791134
+          },
+          "mean_delta5_minus1": -0.01339471865599161,
+          "mean_delta30_minus1": -0.06691952020886822,
+          "interpretation": "Same token, level and rule; conditional common resolved support, not a population effect."
+        }
+      }
+    }
+  },
+  "interpretation": [
+    "Selection uses training returns only, with full-horizon purge before the training cutoff.",
+    "Eligibility is a coverage gate, not proof that missing exits are missing at random.",
+    "Resolved-only bootstrap intervals do not identify complete-population PnL.",
+    "UTC-day bootstrap preserves within-day dependence but not dependence across days; few test days limit inference.",
+    "Rules and filters were fixed before reading final test aggregates; test filters remain exploratory diagnostics, not independent discoveries.",
+    "A later October ledger sample evaluates predeclared rules separately, not the best test rule chosen here.",
+    "No strategy is qualified for real-capital trading by this analysis alone."
+  ],
+  "model_prediction_filter_not_applied": "The existing prediction table contains predictions only for future-label-mature, gap-free train/test cohorts, not all replay signals. Applying its non-null mask as a live filter would import retrospective observation eligibility. A prospective or all-feature-row post-fit prediction table is required before evaluating its PnL as a deployable rule.",
+  "independent_october": {
+    "input_sha256": "599b1d0466eca09048087771785d84435015b8a8fea4ae5fd5d1e2903363409d",
+    "n_ledger_groups": 36,
+    "n_positive_resolved_mean": 0,
+    "ledger_mean_range": [
+      -0.224549999344108,
+      -0.0571873995413651
+    ],
+    "coverage_bias_example": [
+      {
+        "coverage_mode": "ledger_day_coverage",
+        "lv": 0.1,
+        "lat": 1,
+        "rule": "trail0.2_arm1.3_h600",
+        "n_signals": 6205,
+        "n_filled": 6104,
+        "n_no_fill": 101,
+        "n_resolved": 6034,
+        "n_censored": 70,
+        "mean_resolved": -0.1783784251699618,
+        "median_resolved": -0.3828418063137712,
+        "n_wins": 1627,
+        "min_resolved": -0.9323946253022394,
+        "max_resolved": 4.3441376010709245,
+        "sum_resolved": -1076.3354174755495,
+        "sum_positive": 664.4377833523611,
+        "max_positive": 4.3441376010709245,
+        "resolved_fraction_of_fills": 0.9885321100917432,
+        "win_fraction_resolved": 0.2696387139542592,
+        "missing_minus100pct_scenario": -0.1878006909363613,
+        "largest_winner_share_positive": 0.006538065278517
+      },
+      {
+        "coverage_mode": "trade_supported",
+        "lv": 0.1,
+        "lat": 1,
+        "rule": "trail0.2_arm1.3_h600",
+        "n_signals": 6205,
+        "n_filled": 6101,
+        "n_no_fill": 104,
+        "n_resolved": 2589,
+        "n_censored": 3512,
+        "mean_resolved": 0.1468365811943447,
+        "median_resolved": 0.072413013977377,
+        "n_wins": 1593,
+        "min_resolved": -0.9180255932784304,
+        "max_resolved": 4.3441376010709245,
+        "sum_resolved": 380.1599087121585,
+        "sum_positive": 655.8871556211702,
+        "max_positive": 4.3441376010709245,
+        "resolved_fraction_of_fills": 0.424356662842157,
+        "win_fraction_resolved": 0.6152954808806489,
+        "missing_minus100pct_scenario": -0.5133322555790594,
+        "largest_winner_share_positive": 0.0066233003098783
+      }
+    ],
+    "interpretation": "Two coverage models with slightly different fills, not a randomized or pure missing-position intervention. Ledger-day coverage is an explicit constant-state sensitivity, not guaranteed execution. Only one UTC day."
+  }
+}

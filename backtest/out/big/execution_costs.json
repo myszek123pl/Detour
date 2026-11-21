@@ -1,0 +1,418 @@
+{
+  "generated_at": "2026-11-21T16:19:06.857729+00:00",
+  "provenance": {
+    "repo": "pumpdatafun/pump-fun-trades-sample",
+    "revision": "c3a429fcd65f15e9ea1feca8a174e617b7e8f396",
+    "files": [
+      {
+        "path": "README.md",
+        "size": 17663,
+        "sha256": "8f25bcbb593782a3a8b142568ccb85fbcc4bf22ebe2b66936075415be79c1402"
+      },
+      {
+        "path": "data/pumpdata-2026-10-15-00000-of-00004.parquet",
+        "size": 434107440,
+        "sha256": "a0e7d54f3932df5d830b01ab0fbf02de3c20d983aec0b06a735c14faec2f417e"
+      },
+      {
+        "path": "data/pumpdata-2026-10-15-00001-of-00004.parquet",
+        "size": 423298207,
+        "sha256": "332447f205c663e7bf99194a0de6592bc34e38b414c19a1daa4ceee1e83370cd"
+      },
+      {
+        "path": "data/pumpdata-2026-10-15-00002-of-00004.parquet",
+        "size": 411630117,
+        "sha256": "b9d1cb7bd28768b98cf05d57c59f5400460c914b89f3e66433f7033daa3f5826"
+      },
+      {
+        "path": "data/pumpdata-2026-10-15-00003-of-00004.parquet",
+        "size": 215433902,
+        "sha256": "eec5d8bd44655e53b1fc6987ccbe749d845b6ad610878f7736a13d78fe527d33"
+      },
+      {
+        "path": "events/pumpdata-2026-10-15-events.parquet",
+        "size": 4580160,
+        "sha256": "37e2805de6af984c8488d4902bc624c9992541a0e131ec5f0e9e996cd631183b"
+      },
+      {
+        "path": "graduations/pumpdata-2026-10-15-graduations.parquet",
+        "size": 36388,
+        "sha256": "1dd5b4164ce1f8384d2b8ca9b7183f5f70175ce7b02ec6756bf38a1f7ec17bee"
+      },
+      {
+        "path": "launches/pumpdata-2026-10-15-launches.parquet",
+        "size": 3395760,
+        "sha256": "4bdfc3b08a376e4290a11e5a15731c47182009b23c7c4d51fdf3690812adf18f"
+      },
+      {
+        "path": "receipt.json",
+        "size": 494,
+        "sha256": "cc20f9b5607802958d56ea83fd153f74d0c96d036ece366b1c1a360c265b8aa5"
+      },
+      {
+        "path": "summary.json",
+        "size": 3861,
+        "sha256": "1bd9dfd464ac69e77f87d6848a9ef7750260e6ebb103ca728d64760c3084d404"
+      }
+    ],
+    "finished_at": "2026-11-21T16:16:43.782857+00:00"
+  },
+  "receipt": {
+    "day": "2026-10-15",
+    "first_slot": 457030039,
+    "last_slot": 457429525,
+    "slots_in_range": 399487,
+    "blocks": 399170,
+    "slots_skipped": 317,
+    "rows": {
+      "trades_landed": 21801882,
+      "trades_failed": 20428528,
+      "events": 75466,
+      "signatures": 40955595,
+      "launches": 46540,
+      "graduations": 302
+    },
+    "check": {
+      "against": "getBlocks(first_slot, last_slot) from a Solana RPC",
+      "chain_blocks": 399170,
+      "in_chain_not_here": 0,
+      "here_not_in_chain": 0
+    }
+  },
+  "provider_summary": {
+    "day": "2026-10-15",
+    "utc_from": "2026-10-15T00:00:00Z",
+    "utc_to_exclusive": "2026-10-16T00:00:00Z",
+    "rows_total": 42230410,
+    "rows_landed": 21801882,
+    "rows_failed": 20428528,
+    "rows_by_venue": {
+      "curve_landed": 4556524,
+      "curve_failed": 10396021,
+      "pumpswap_landed": 17245358,
+      "pumpswap_failed": 10032507
+    },
+    "venue_codes": {
+      "curve:c": 14952545,
+      "pumpswap:a": 27277865
+    },
+    "pumpswap_landed_in_migration_pool": 10997308,
+    "pumpswap_landed_in_other_pools": 6248050,
+    "distinct_mints": 81402,
+    "distinct_wallets": 849927,
+    "distinct_pools": 19691,
+    "first_block_time": "2026-10-15T00:00:00Z",
+    "last_block_time": "2026-10-15T23:59:59Z",
+    "longest_gap_s": 2,
+    "epochs": [
+      1057,
+      1058
+    ],
+    "archive_last_ts": "2026-11-20T12:52:19Z",
+    "shards": [
+      {
+        "file": "data/pumpdata-2026-10-15-00000-of-00004.parquet",
+        "rows": 11877359,
+        "bytes": 434107440,
+        "first_ts": 1792022400,
+        "last_ts": 1792048472
+      },
+      {
+        "file": "data/pumpdata-2026-10-15-00001-of-00004.parquet",
+        "rows": 11877359,
+        "bytes": 423298207,
+        "first_ts": 1792048472,
+        "last_ts": 1792078485
+      },
+      {
+        "file": "data/pumpdata-2026-10-15-00002-of-00004.parquet",
+        "rows": 11877359,
+        "bytes": 411630117,
+        "first_ts": 1792078485,
+        "last_ts": 1792097875
+      },
+      {
+        "file": "data/pumpdata-2026-10-15-00003-of-00004.parquet",
+        "rows": 6598333,
+        "bytes": 215433902,
+        "first_ts": 1792097875,
+        "last_ts": 1792108799
+      }
+    ],
+    "shard_count": 4,
+    "bytes_total": 1484469666,
+    "generated_at": "2026-11-20T22:04:46Z",
+    "fixes": {
+      "pumpswap_landed_wsol_base_pools": 5323298,
+      "landed_mint_from_pool_events": 96737,
+      "curve_buys_with_postbuy": 302,
+      "curve_landed_token_quoted": 542990,
+      "curve_token_quoted_split_by_order": 4732,
+      "curve_token_quoted_unsplit": 0,
+      "pumpswap_landed_pool_unknown": 0,
+      "failed_mint_is_wsol": 847794,
+      "landed_left_out": 0,
+      "failed_left_out": 17970
+    },
+    "tail_min": 0,
+    "extras": {
+      "events_rows": 75466,
+      "events_bytes": 4580160,
+      "signatures_rows": 40955595,
+      "signature_files": [
+        {
+          "file": "signatures/pumpdata-2026-10-15-signatures-00000-of-00007.parquet",
+          "bytes": 449648802
+        },
+        {
+          "file": "signatures/pumpdata-2026-10-15-signatures-00001-of-00007.parquet",
+          "bytes": 450199546
+        },
+        {
+          "file": "signatures/pumpdata-2026-10-15-signatures-00002-of-00007.parquet",
+          "bytes": 450255961
+        },
+        {
+          "file": "signatures/pumpdata-2026-10-15-signatures-00003-of-00007.parquet",
+          "bytes": 449903280
+        },
+        {
+          "file": "signatures/pumpdata-2026-10-15-signatures-00004-of-00007.parquet",
+          "bytes": 449897558
+        },
+        {
+          "file": "signatures/pumpdata-2026-10-15-signatures-00005-of-00007.parquet",
+          "bytes": 449570252
+        },
+        {
+          "file": "signatures/pumpdata-2026-10-15-signatures-00006-of-00007.parquet",
+          "bytes": 74211874
+        }
+      ],
+      "launches_rows": 46540,
+      "launches_token_quoted": 9643,
+      "launches_bytes": 3395760,
+      "graduations_rows": 302,
+      "graduations_bytes": 36388,
+      "receipt": {
+        "day": "2026-10-15",
+        "first_slot": 457030039,
+        "last_slot": 457429525,
+        "slots_in_range": 399487,
+        "blocks": 399170,
+        "slots_skipped": 317,
+        "rows": {
+          "trades_landed": 21801882,
+          "trades_failed": 20428528,
+          "events": 75466,
+          "signatures": 40955595,
+          "launches": 46540,
+          "graduations": 302
+        },
+        "check": {
+          "against": "getBlocks(first_slot, last_slot) from a Solana RPC",
+          "chain_blocks": 399170,
+          "in_chain_not_here": 0,
+          "here_not_in_chain": 0
+        }
+      }
+    },
+    "elapsed_s": 269.6
+  },
+  "rows": {
+    "n": 42230410,
+    "mints": 81402,
+    "wallets": 849927,
+    "first_second": 1792022400,
+    "last_second": 1792108799,
+    "successful_missing_sol": 1387558,
+    "successful_missing_r1": 0
+  },
+  "venue_rows": [
+    {
+      "venue": "curve",
+      "failed": false,
+      "n": 4556524,
+      "mints": 59730
+    },
+    {
+      "venue": "curve",
+      "failed": true,
+      "n": 10396021,
+      "mints": 28978
+    },
+    {
+      "venue": "pumpswap",
+      "failed": false,
+      "n": 17245358,
+      "mints": 18524
+    },
+    {
+      "venue": "pumpswap",
+      "failed": true,
+      "n": 10032507,
+      "mints": 3434
+    }
+  ],
+  "transactions": [
+    {
+      "failed": false,
+      "n": 20865530,
+      "legs": 21801882,
+      "fee_sol": 2715.540586766,
+      "tip_sol": 832.237709977,
+      "fee_lamports_quantiles": [
+        7401.0,
+        147500.0,
+        1505000.0
+      ],
+      "tip_lamports_quantiles": [
+        0.0,
+        0.0,
+        27500.0
+      ],
+      "with_tip": 775291,
+      "inconsistent_repeated_fee": 0,
+      "multi_leg_transactions": 765023,
+      "compute_unit_quantiles": [
+        100407.0,
+        168179.0,
+        353228.0
+      ]
+    },
+    {
+      "failed": true,
+      "n": 20060337,
+      "legs": 20428528,
+      "fee_sol": 663.7026996,
+      "tip_sol": null,
+      "fee_lamports_quantiles": [
+        6381.0,
+        20000.0,
+        205001.0
+      ],
+      "tip_lamports_quantiles": null,
+      "with_tip": 0,
+      "inconsistent_repeated_fee": 0,
+      "multi_leg_transactions": 254605,
+      "compute_unit_quantiles": null
+    }
+  ],
+  "transaction_fee_turnover": [
+    {
+      "turnover_bucket": "0.1-1SOL",
+      "n": 4370459,
+      "fee_tip_over_gross_turnover": 8.60934416125788e-05,
+      "fee_tip_sol": 2.2006e-05
+    },
+    {
+      "turnover_bucket": "1-10SOL",
+      "n": 2224509,
+      "fee_tip_over_gross_turnover": 3.5389545130829563e-06,
+      "fee_tip_sol": 5.301e-06
+    },
+    {
+      "turnover_bucket": "<0.1SOL",
+      "n": 12634291,
+      "fee_tip_over_gross_turnover": 0.0156958471006901,
+      "fee_tip_sol": 7.001e-06
+    },
+    {
+      "turnover_bucket": ">=10SOL",
+      "n": 414206,
+      "fee_tip_over_gross_turnover": 5.205335964331327e-07,
+      "fee_tip_sol": 1e-05
+    }
+  ],
+  "top_failure_errors": [
+    {
+      "error": "InstructionError(2, Custom(6001))",
+      "trade_rows": 2351571,
+      "transactions": 2351242
+    },
+    {
+      "error": "InstructionError(0, Custom(7))",
+      "trade_rows": 2252500,
+      "transactions": 2252500
+    },
+    {
+      "error": "InstructionError(4, Custom(6004))",
+      "trade_rows": 1137850,
+      "transactions": 1131110
+    },
+    {
+      "error": "InstructionError(1, Custom(6040))",
+      "trade_rows": 1097033,
+      "transactions": 1093104
+    },
+    {
+      "error": "InstructionError(3, Custom(6004))",
+      "trade_rows": 997883,
+      "transactions": 994377
+    },
+    {
+      "error": "InstructionError(5, Custom(6040))",
+      "trade_rows": 810828,
+      "transactions": 810825
+    },
+    {
+      "error": "InstructionError(0, Custom(23))",
+      "trade_rows": 706300,
+      "transactions": 706300
+    },
+    {
+      "error": "InstructionError(0, Custom(6040))",
+      "trade_rows": 704393,
+      "transactions": 699297
+    },
+    {
+      "error": "InstructionError(0, Custom(12))",
+      "trade_rows": 583652,
+      "transactions": 583652
+    },
+    {
+      "error": "InstructionError(3, Custom(6001))",
+      "trade_rows": 525997,
+      "transactions": 520110
+    },
+    {
+      "error": "InstructionError(5, Custom(6004))",
+      "trade_rows": 560903,
+      "transactions": 501821
+    },
+    {
+      "error": "InstructionError(0, Custom(100))",
+      "trade_rows": 494704,
+      "transactions": 494704
+    },
+    {
+      "error": "InstructionError(3, Custom(12))",
+      "trade_rows": 493639,
+      "transactions": 493639
+    },
+    {
+      "error": "InstructionError(3, Custom(7))",
+      "trade_rows": 436629,
+      "transactions": 436628
+    },
+    {
+      "error": "InstructionError(4, Custom(6040))",
+      "trade_rows": 354259,
+      "transactions": 354236
+    }
+  ],
+  "curve_state": {
+    "n": 4556524,
+    "wsol_quoted": 4013534,
+    "standard_invariant": 2519376,
+    "near_completion": 47763
+  },
+  "interpretation": [
+    "Repeated transaction fees are counted once per(slot,idx). Protocol/creator/LP fees are additional and not in fee_lamports.",
+    "tip_lamports on failed transactions is unknown, not proven zero.",
+    "Failure frequency is conditional on exported attempts; failed multi-hop attempts without identifiable mint are excluded by the publisher.",
+    "An observed failure share cannot calibrate the fill probability of our unsubmitted orders.",
+    "Current official SDK quotes fixed total budgets with net input X/(1+fee), before integer rounding; June-July fee schedules remain an assumption.",
+    "Fees divided by total gross transaction turnover are descriptive, not per-position round-trip costs."
+  ]
+}

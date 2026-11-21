@@ -1,0 +1,204 @@
+{
+  "generated_at": "2026-11-21T11:10:49.054627+00:00",
+  "selection": "non-mayhem; concentration not flagged; >=99% raw rows with positive reserves and standard invariant within0.5%; first capture0-10s; >=2 rows",
+  "counts": {
+    "tokens": 219327,
+    "raw_rows": 16221716,
+    "provider_graduated": 1101
+  },
+  "by_day": [
+    {
+      "day_utc": "2026-06-05",
+      "tokens": 2975,
+      "raw_rows": 211766
+    },
+    {
+      "day_utc": "2026-06-06",
+      "tokens": 1870,
+      "raw_rows": 91658
+    },
+    {
+      "day_utc": "2026-06-07",
+      "tokens": 5667,
+      "raw_rows": 408896
+    },
+    {
+      "day_utc": "2026-06-08",
+      "tokens": 7899,
+      "raw_rows": 441947
+    },
+    {
+      "day_utc": "2026-06-09",
+      "tokens": 6240,
+      "raw_rows": 271084
+    },
+    {
+      "day_utc": "2026-06-10",
+      "tokens": 6069,
+      "raw_rows": 315566
+    },
+    {
+      "day_utc": "2026-06-11",
+      "tokens": 7083,
+      "raw_rows": 461917
+    },
+    {
+      "day_utc": "2026-06-12",
+      "tokens": 8219,
+      "raw_rows": 440968
+    },
+    {
+      "day_utc": "2026-06-13",
+      "tokens": 6796,
+      "raw_rows": 421690
+    },
+    {
+      "day_utc": "2026-06-14",
+      "tokens": 6862,
+      "raw_rows": 400985
+    },
+    {
+      "day_utc": "2026-06-15",
+      "tokens": 9484,
+      "raw_rows": 524287
+    },
+    {
+      "day_utc": "2026-06-16",
+      "tokens": 9287,
+      "raw_rows": 474063
+    },
+    {
+      "day_utc": "2026-06-17",
+      "tokens": 4642,
+      "raw_rows": 189694
+    },
+    {
+      "day_utc": "2026-06-19",
+      "tokens": 1573,
+      "raw_rows": 89595
+    },
+    {
+      "day_utc": "2026-06-20",
+      "tokens": 4396,
+      "raw_rows": 271517
+    },
+    {
+      "day_utc": "2026-06-21",
+      "tokens": 3312,
+      "raw_rows": 123754
+    },
+    {
+      "day_utc": "2026-06-22",
+      "tokens": 8769,
+      "raw_rows": 436827
+    },
+    {
+      "day_utc": "2026-06-23",
+      "tokens": 7581,
+      "raw_rows": 337338
+    },
+    {
+      "day_utc": "2026-06-24",
+      "tokens": 3279,
+      "raw_rows": 164611
+    },
+    {
+      "day_utc": "2026-06-25",
+      "tokens": 1767,
+      "raw_rows": 74815
+    },
+    {
+      "day_utc": "2026-06-26",
+      "tokens": 7746,
+      "raw_rows": 387988
+    },
+    {
+      "day_utc": "2026-06-27",
+      "tokens": 6828,
+      "raw_rows": 329691
+    },
+    {
+      "day_utc": "2026-06-28",
+      "tokens": 8071,
+      "raw_rows": 257503
+    },
+    {
+      "day_utc": "2026-06-29",
+      "tokens": 7674,
+      "raw_rows": 302139
+    },
+    {
+      "day_utc": "2026-06-30",
+      "tokens": 7187,
+      "raw_rows": 264650
+    },
+    {
+      "day_utc": "2026-07-01",
+      "tokens": 8948,
+      "raw_rows": 347514
+    },
+    {
+      "day_utc": "2026-07-02",
+      "tokens": 3190,
+      "raw_rows": 157144
+    },
+    {
+      "day_utc": "2026-07-04",
+      "tokens": 1229,
+      "raw_rows": 160781
+    },
+    {
+      "day_utc": "2026-07-05",
+      "tokens": 5542,
+      "raw_rows": 802694
+    },
+    {
+      "day_utc": "2026-07-06",
+      "tokens": 8541,
+      "raw_rows": 972584
+    },
+    {
+      "day_utc": "2026-07-07",
+      "tokens": 8580,
+      "raw_rows": 1168341
+    },
+    {
+      "day_utc": "2026-07-08",
+      "tokens": 5201,
+      "raw_rows": 744589
+    },
+    {
+      "day_utc": "2026-07-09",
+      "tokens": 8225,
+      "raw_rows": 1228462
+    },
+    {
+      "day_utc": "2026-07-10",
+      "tokens": 5927,
+      "raw_rows": 1020437
+    },
+    {
+      "day_utc": "2026-07-11",
+      "tokens": 4110,
+      "raw_rows": 654760
+    },
+    {
+      "day_utc": "2026-07-13",
+      "tokens": 5028,
+      "raw_rows": 747941
+    },
+    {
+      "day_utc": "2026-07-14",
+      "tokens": 3530,
+      "raw_rows": 521520
+    }
+  ],
+  "path_rows": 16217167,
+  "caveats": [
+    "Selection uses complete-path coverage and is retrospective; this is a data-quality cohort, not a deployable token filter.",
+    "State ordering is collector event_time/id, not on-chain slot/index.",
+    "No execution at an unobserved terminal reserve state can establish actual realizable PnL.",
+    "Own reserve impact replay holds other traders token/SOL changes fixed; a counterfactual approximation.",
+    "The is_sys name is legacy: it flags a provider-excluded address whose identity has not been verified."
+  ]
+}

@@ -1,5 +1,16 @@
 # Backtest memecoinów: podsumowanie
 
+## Aktualizacja: pełny replay i niezależny październik (21 listopada 2026)
+
+Przeliczono wszystkie 33 581 765 surowych transakcji korpusu Hugging Face. Replay objął retrospektywnie oczyszczoną kohortę 219 327 tokenów i 16 217 167 stanów: 32 reguły wyjścia, siedem poziomów wejścia, latencje 1/5/30 s, łącznie 16 272 480 ocen wariantów. To nie liczba niezależnych transakcji portfela ani test wszystkich możliwych strategii. Niekompletne wykonania pozostają jawnie nierozstrzygnięte.
+
+- Najlepsza reguła wybrana na treningu spośród 27 spełniających bramkę liczebności/pokrycia nadal traci: **−4,19%** na treningu i **−3,89%** na późniejszej próbie przy 1 s. Wszystkie sześć dni późniejszej próby ujemne; warunkowy bootstrap dni **[−5,22%; −2,23%]**. Reguła: stop 15%, take-profit 25%, wejście przy 50% krzywej; wynik dotyczy widocznych wyjść i zadeklarowanych kosztów.
+- Niezależny dzień ledgerowy 15 października: 19 346 tokenów, cztery z góry ustalone reguły. Wszystkie 36 kombinacji przy jawnym modelu ciągłości stanu do końca dnia mają ujemne średnie. Przykład pozornej przewagi: trailing daje **+14,68%** po pominięciu większości nierozstrzygniętych pozycji, wobec **−17,84%** w analizie wrażliwości pokrycia. To różne modele pokrycia, nie czysty efekt przyczynowy.
+- Predykcja etykiety graduacji: AUC **0,7986** dla samej krzywej i **0,8054** po dodaniu zachowania traderów. Trafność etykiety nie jest PnL; przewaga dodatkowych cech na wczesnym poziomie nie została potwierdzona.
+- Pełne publikacje, wycofane wnioski RED-PUMP, pomiary rynku oraz luki danych dla Wooda/Satsdatsa opisano w notatkach **31–40**. Nie traktujemy tych dwóch strategii jako przetestowanych lub obalonych przy niepełnych danych.
+
+**Żadna oceniona reguła nie została zakwalifikowana do handlu realnym kapitałem.** To wynik określonych testów i ograniczeń danych, nie dowód niemożliwości zarabiania. Szczegóły wyboru i mianowniki: `research_notes/Trading memecoinów backtest/40_trading_rules_review.md`; reprodukcja: `backtest/big/README.md`. Poniższe sekcje zachowują historyczne wyniki wcześniejszych etapów.
+
 Szczegóły w `research_notes/Trading memecoinów backtest/` i kodzie w `backtest/`.
 
 ## Wyniki na prawdziwych danych (9 684 tokeny, czerwiec 2026, świece 15m)

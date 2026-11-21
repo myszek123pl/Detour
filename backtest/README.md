@@ -1,5 +1,7 @@
 # Backtest memecoinów na publicznych danych
 
+Nowy eksperyment na pełnym korpusie transakcji, audyt wykonania i niezależny okres październikowy: [big/README.md](big/README.md). Poniższy opis dotyczy historycznego etapu na świecach 15m i dawnych plików ze scratchpada; nie jest instrukcją nowego replay.
+
 Dane (nieskomitowane, pobrane do scratchpada sesji): ian05012/solana-memecoin-dataset (GMGN, czerwiec 2026),
 Erin-Blockchain/solana-pumpfun-launches (28k startów, lip–wrz 2026), Smurfetc/solana-memecoin-calls-dataset (13k calli).
 
