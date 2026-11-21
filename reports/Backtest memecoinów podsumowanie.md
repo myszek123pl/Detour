@@ -53,3 +53,20 @@ huggingface.co, hf.co, cdn-lfs.huggingface.co, cas-bridge.xethub.hf.co, zenodo.o
 Na wszystkich dostępnych danych nie ma wiarygodnej, powtarzalnej przewagi dla tradera z zewnątrz.
 Dane dobrze mówią, czego NIE robić: nie gonić pumpów, nie kupować tokenów z dużym udziałem dewelopera/snajperów,
 nie trzymać przegranych, trzymać małe pozycje względem płynności.
+
+## Etap 3: porównanie z wypowiedziami praktyków (notatka 06_full_sources_practitioners.md)
+Źródła przeczytane w całości: klip Cupsey (YouTube JbWa-Jss-18), AMA „In the Trenches” (Satsdats, Wood/notanicecat69,
+Logjam, chang_defi, Coyote; streszczenia redakcyjne), podcast Wu Blockchain (TRUMP/MELANIA), wywiad Odaily (Da Gen),
+poradniki Substack oraz praca Ding–Luo–Xu (SBFC 2025, 6 000 tokenów pump.fun). Wszystko to deklaracje, poza pracą
+empiryczną; nieosiągalne: FullCryptoGuide (HF, 401), podcasty TG (YouTube 429), Memecoin Podcast (brak transkryptów).
+- Zgodne z naszymi danymi: zyski tylko przy skrajnej szybkości i wolumenie (Cupsey: setki tokenów dziennie, trzymanie sekundy–godzina;
+  Cented: mediana 7 s); kopiowanie szybkich portfeli traci (test cookin.fun na Cented −21,3% vs nasze ok. −23% dla top-20 Kolscan);
+  zyski skoncentrowane (Chang: „90% czasu na minusie”; praca SBFC: zwycięzcy to nadreprezentacja twórców i snajperów);
+  małe pozycje (Wood ok. 2,5% majątku, Satsdats stała pula do straty); szybkie cięcie strat; wykluczanie dev/bundli/snajperów.
+- Sprzeczne: kupowanie dołków („metoda 40%”, „second dip”) — u nas powrót do ceny wejścia po −50% tylko 6,6%,
+  a jedyny praktyk z rozpisanymi stratami (Da Gen: GOAT ok. 900 tys. USD, VINE, BROCCOLI) na tym stracił; gonienie wolumenu/narracji.
+- Drabinki wyjść (25% przy 3–4x itd.) i „kapitał na 2x”: brak przewagi w naszych 10 962 regułach OOS; praktycy stosują je do
+  rzadkich zwycięzców, więc to rachunkowość ryzyka, nie dowód przewagi. Ich własne przykłady działają w obie strony.
+- Nieprzetestowane (luki): wejście dopiero po 48 h (Wood), wejście przy kapitalizacji 5–10 mln z wyjściem 9-EMA/1h (Satsdats),
+  tylko tokeny po graduacji (Krabs). Nasza próba to świeże tokeny z świecami 15m; ta kohorta wymaga danych o dłuższym horyzoncie.
+- Uwaga: liczby transakcji Cupsey są niespójne (78/dzień wg uwuu, ok. 300 tokenów/dzień wg niego, ok. 1 050/dzień wg Gate) — nie cytować pojedynczej.
