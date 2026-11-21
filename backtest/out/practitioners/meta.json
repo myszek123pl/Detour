@@ -1,0 +1,28 @@
+{
+ "pass_rate": {
+  "ALL (unfiltered)": 1.0,
+  "dev<=5%": 0.9119366396379408,
+  "snipers<=2": 0.5138600792004526,
+  "top10<=15%": 0.17914388082217614,
+  "top10<=10%": 0.12049783141617952,
+  "GREMLIN15: dev<=5 & sn<=2 & top10<=15": 0.08580049028851594,
+  "GREMLIN10: dev<=5 & sn<=2 & top10<=10": 0.04733169903828022,
+  "wallet-proxy top1net<=5%": 0.1991325664718084,
+  "wallet-proxy top1net<=10%": 0.7180841033377333,
+  "GREMLIN15 & wallet-proxy<=10%": 0.05770318687535357
+ },
+ "n": {
+  "ALL (unfiltered)": 5303,
+  "dev<=5%": 4836,
+  "snipers<=2": 2725,
+  "top10<=15%": 950,
+  "top10<=10%": 639,
+  "GREMLIN15: dev<=5 & sn<=2 & top10<=15": 455,
+  "GREMLIN10: dev<=5 & sn<=2 & top10<=10": 251,
+  "wallet-proxy top1net<=5%": 1056,
+  "wallet-proxy top1net<=10%": 3808,
+  "GREMLIN15 & wallet-proxy<=10%": 306
+ },
+ "n_before_lm_drop": 9684,
+ "n_after": 5303
+}

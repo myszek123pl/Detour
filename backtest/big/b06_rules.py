@@ -4,7 +4,7 @@ import sys, os, numpy as np, pandas as pd, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from simlib import *
 from multiprocessing import Pool
-S=sys.argv[1]
+S=sys.argv[1]; SRC=sys.argv[2] if len(sys.argv)>2 else 'jocry'
 import datetime as dt_
 def ep(s): return dt_.datetime.fromisoformat(s).replace(tzinfo=dt_.timezone.utc).timestamp()
 T0=ep('2026-07-04T12:00:00'); T1=ep('2026-07-12T15:00:00')
@@ -24,7 +24,7 @@ EXITS['ladderD']=dict(sl=0.7,tps=[(1.3,0.5),(2.0,0.5)])
 for tm in (30,120,600,3600):
     EXITS[f'time{tm}_sl0.7']=dict(sl=0.7,tmax=tm)
 EXNAMES=list(EXITS)
-tk,df,pg=load(S,mayhem=False,tmin=T0,tmax=T1)
+tk,df,pg=load(S,mayhem=False,tmin=(T0 if SRC=='jocry' else None),tmax=(T1 if SRC=='jocry' else None),src=SRC)
 P=Paths(tk,df,pg)
 
 def feats(d,i,lv,meta):
@@ -101,5 +101,5 @@ if __name__=='__main__':
     with Pool(4) as pool:
         res=pool.map(work, mids, chunksize=200)
     rows=[r for rr in res for r in rr]
-    o=pd.DataFrame(rows); o.to_parquet(f'{S}/work/rules_events.parquet')
+    o=pd.DataFrame(rows); o.to_parquet(f'{S}/work/rules_events'+('' if SRC=='jocry' else '_'+SRC)+'.parquet')
     print(o.shape, round(time.time()-t0), 's')

@@ -3,11 +3,11 @@ python3 -I b04_base.py <scratch>"""
 import sys, os, numpy as np, pandas as pd, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from simlib import *
-S=sys.argv[1]
+S=sys.argv[1]; SRC=sys.argv[2] if len(sys.argv)>2 else 'jocry'
 import datetime as dt_
 def ep(s): return dt_.datetime.fromisoformat(s).replace(tzinfo=dt_.timezone.utc).timestamp()
 T0=ep('2026-07-04T12:00:00'); T1=ep('2026-07-12T15:00:00')
-tk,df,pg = load(S, mayhem=False, tmin=T0, tmax=T1)
+tk,df,pg = load(S, mayhem=False, tmin=(T0 if SRC=='jocry' else None), tmax=(T1 if SRC=='jocry' else None), src=SRC)
 P = Paths(tk,df,pg)
 print('tokens',len(tk),'with paths',len(P.rng))
 LEVELS=[0.02,0.05,0.10,0.20,0.30,0.40,0.50,0.60,0.70]
@@ -41,5 +41,5 @@ for n,(m,(s,e)) in enumerate(P.rng.items()):
                                chart_last=chart[-1],ttpeak=(t[j+int(np.argmax(chart))]-t[j]))
                 rows.append(rec)
     if n%20000==0: print(n,len(rows),round(time.time()-t0))
-out=pd.DataFrame(rows); out.to_parquet(f'{S}/work/base_events.parquet')
+out=pd.DataFrame(rows); out.to_parquet(f'{S}/work/base_events'+('' if SRC=='jocry' else '_'+SRC)+'.parquet')
 print(out.shape, round(time.time()-t0))

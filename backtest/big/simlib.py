@@ -16,17 +16,19 @@ POOL_Q, POOL_B = 85.0, 206.9e6   # PumpSwap pool reserves at migration (measured
 POOL_FEE = 0.01725        # measured lp+creator+buyback fee
 SOLUSD = 70.0
 
-def load(S, mayhem=None, tmin=None, tmax=None):
+FILES={'jocry':('tok_jocry2.parquet','paths_jocry.parquet','postgrad_jocry.parquet'),'oct':('oct_tok.parquet','oct_paths.parquet','oct_postgrad.parquet')}
+def load(S, mayhem=None, tmin=None, tmax=None, src='jocry'):
     con = duckdb.connect()
-    tk = con.sql(f"select * from read_parquet('{S}/work/tok_jocry2.parquet') order by mid").df()
+    ft,fp,fg = FILES[src]
+    tk = con.sql(f"select * from read_parquet('{S}/work/{ft}') order by mid").df()
     if mayhem is not None: tk = tk[tk.mh==mayhem]
     if tmin is not None: tk = tk[tk.L>=tmin]
     if tmax is not None: tk = tk[tk.L<tmax]
     mids = tk.mid.values
-    df = con.sql(f"select mid,t,b,sol,vs,vt,wid,is_sys from read_parquet('{S}/work/paths_jocry.parquet')").df()
+    df = con.sql(f"select mid,t,b,sol,vs,vt,wid,is_sys from read_parquet('{S}/work/{fp}')").df()
     df = df[df.mid.isin(set(mids.tolist()))]
     df = df.sort_values(['mid','t'], kind='stable')
-    pg = con.sql(f"select * from read_parquet('{S}/work/postgrad_jocry.parquet') order by mid, ssg").df()
+    pg = con.sql(f"select * from read_parquet('{S}/work/{fg}') order by mid, ssg").df()
     return tk.reset_index(drop=True), df.reset_index(drop=True), pg
 
 class Paths:
@@ -86,17 +88,17 @@ def pool_ratio(P, m, lat, mode='own'):
     if k>=len(ssg): k=len(ssg)-1
     return float(np.clip(px[k]/P_GRAD, 0.1, 3.0))
 
-def entry(tokd, i_dec, lat, X, fee, tip):
+def entry(tokd, i_dec, lat, X, fee, tip, t_dec=None, vs_cap=112.0):
     """returns None if no fill, else dict(j, y, xin, ds, dt, px_avg, cost)"""
     t = tokd['t']; n = len(t)
-    tf = t[i_dec]+lat
+    tf = (t[i_dec] if t_dec is None else t_dec)+lat
     G = tokd['G']
     if tokd['grad'] and G is not None and tf >= G: return None
     j = idx_at(t, tf)
     if j < i_dec: j = i_dec
     if j >= n: j = n-1
     vs, vt = tokd['vs'][j], tokd['vt'][j]
-    if vs > 112.0: return None   # curve (almost) complete -> buy would overflow / fail
+    if vs_cap is not None and vs > vs_cap: return None   # curve (almost) complete -> buy would overflow / fail
     xin, y = buy(vs, vt, X, fee)
     return dict(j=j, y=y, xin=xin, ds=xin, dt=y, px=xin/y, tf=t[j], cost=X+tip, vs0=vs)
 
