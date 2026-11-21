@@ -50,13 +50,13 @@ print('overall base', df.y2.mean(), df.y5.mean(), df.multiple.median())
 # serial dev launch tempo
 print('gap quantiles (s) for repeat launches', df.gap_s.dropna().quantile([.05,.25,.5,.75,.95]).values)
 # fast re-launch after failed
-d=df[df.n_before>0]
-d['prev_mult']=g.multiple.shift()[d.index]
-d['prev_gap_min']=d.gap_s/60
-summ(d.index.isin(d[(d.prev_mult<1.2)].index),'after prev flat(<1.2x)')
-summ(d.index.isin(d[(d.prev_mult>=2)].index),'after prev 2x+')
-summ(d.index.isin(d[(d.prev_gap_min<60)].index),'relaunch<1h')
-summ(d.index.isin(d[(d.prev_gap_min>=60*24)].index),'relaunch>=24h')
+df['prev_mult']=g.multiple.shift(); df['prev_gap_min']=df.gap_s/60
+summ(df.prev_mult<1.2,'after prev flat(<1.2x)')
+summ(df.prev_mult>=2,'after prev 2x+')
+summ(df.prev_mult>=5,'after prev 5x+')
+summ(df.prev_gap_min<60,'relaunch<1h')
+summ(df.prev_gap_min.between(60,24*60),'relaunch 1-24h')
+summ(df.prev_gap_min>=60*24,'relaunch>=24h')
 # pooled by-day concentration of top devs
 print('top-20 devs share', vc.head(20).sum()/len(df), 'top-100', vc.head(100).sum()/len(df))
 # early-features of serial vs one-off

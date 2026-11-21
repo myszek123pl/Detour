@@ -125,3 +125,20 @@ alexvxonchain/ghostfill, alexvxonchain/hillwire, Positano777/pump-launch-sniper,
 
 ## Limits
 GitHub search is keyword-limited; code search returned few hits (paper_trades.csv in kokikkkk44/meme-scanner; paper_trades_log_OLD.csv in oxg43/letsgo was sports betting). Further targets could be found by searching `filename:paper_trades.csv`, `filename:journal.jsonl`, `filename:positions.csv` with pump/solana terms.
+
+## Addendum: web search (WebSearch) and blocked hosts
+
+WebSearch works (returns titles/URLs and snippets). WebFetch does NOT: every host tried failed DNS resolution
+(not in the session's allowed network domains): dev.to, www.arxiv.org, web3.arxiv.org. Per the tool guidance I stopped
+trying further hosts (not tried, presumably blocked too: forklog.com, finbold.com, kitemetric.com, ketchupjl.github.io,
+gitbook, sbfc.sydney.edu.au, coingecko.com). Content below is from search snippets only (unverified, not fetched).
+
+Leads found, none with a verifiable trade log:
+- dev.to "My pump.fun bot makes $4000 a day, here are the 4 numbers" (dev.to/gengengen/...): claims backtest sweep of 270 combos; settings dev buy >= 1 SOL, TP +30%, SL -30%, 120 s hold. No sample size, period, or fees visible. Promotional, low credibility.
+- Lookonchain/press (forklog, finbold, blockchainreporter, captainaltcoin, Oct 2024): "AI bot 100% win rate, +780.8 SOL ($129.5k) on 10 memecoins in 5 hours" - on-chain observation, tiny n, one position open, suspected insider trading. Not evidence of replicable edge.
+- arXiv 2601.08641 (2026 preprint, multi-agent LLM memecoin copy trading, claims profits): methodology not checked; fetch blocked. Worth reading if arxiv becomes allowed.
+- arXiv 2602.14860 (Pump.fun related study; contents not seen): snippet says activity spikes occur without improvement in average trader profitability. Fetch blocked.
+- Pine Analytics (via beincrypto): up to 1.75% of Pump.fun launches manipulated by dev-funded sniper wallets; 85% sell within 5 min, 90% within 1-2 swaps - adverse selection for any sniper backtest assuming a fair first-block entry.
+- kitemetric.com "Mastering Solana Sniper Bot Backtesting" / ketchupjl.github.io/backtesting: methodology posts; claim tight exits (TP 20/SL 10) give >70% win rate but low profit, loose exits (TP 200/SL 70) poor expectancy; buy/sell ratio filter 1.2 -> 1.6 helped more than TP/SL tuning (unverified).
+- sol-bangers-only.gitbook.io backtest report docs: vendor docs; no data seen.
+Conclusion: web search added no independent trade-log dataset beyond the GitHub finds; the GitHub results remain the primary evidence.

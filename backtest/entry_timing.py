@@ -35,7 +35,7 @@ def bucket(feat,q=10,label=None,cats=None):
     else: d["b"]=pd.qcut(d[feat],q,duplicates="drop")
     print(f"\n######## {label or feat} (n={len(d)})")
     g=d.groupby("b",observed=True)
-    t=pd.DataFrame({"n":g.size(),"lo":g[feat].min().round(3),"hi":g[feat].max().round(3),
+    t=pd.DataFrame({"n":g.size(),"lo":g[feat].min().astype(float).round(3),"hi":g[feat].max().astype(float).round(3),
         "p2x":g.win2x.mean().round(3),"medPeak":g.peak_mult.median().round(2),
         "mdd_med":g.mdd_from_peak.median().round(3),"medFinal":g.final_mult.median().round(3),
         "medL":g.L.median().round(0)})
@@ -74,8 +74,8 @@ bucket("net_flow_usd")
 bucket("L",label="conservative liquidity L")
 bucket("hour",cats=True,label="hour UTC")
 bucket("dow",cats=True,label="day of week (0=Mon)")
-R["date"]=R.captured_at.dt.date
-bucket("date",cats=True,label="date")
+R["date"]=R.captured_at.dt.strftime("%m%d").astype(int)
+bucket("date",cats=True,label="date MMDD")
 # 2D: age x mcap tertiles
 R["ageT"]=pd.qcut(R.age_min,3,labels=["young","mid","old"]);R["mcT"]=pd.qcut(R.market_cap_usd,3,labels=["lowmc","midmc","highmc"])
 print("\n2D age x mcap EV ladder_B / n / p2x");print(R.pivot_table(index="ageT",columns="mcT",values="net_ladder_B",aggfunc="mean",observed=True).round(3))
@@ -116,3 +116,22 @@ for f in ["age_min","market_cap_usd","price_change_1h","bsr"]:
     for _ in range(300):
         sp.append(pd.Series(rng.permutation(y)).groupby(b.values).mean().pipe(lambda z:z.max()-z.min()))
     print(f,"actual spread",round(a,3),"placebo 95th",round(np.percentile(sp,95),3),"p=",round((np.array(sp)>=a).mean(),3))
+
+# ---- control for liquidity L: within-L-tercile effects
+print("\n=== WITHIN-L-TERCILE controls (EV ladder_B net) ===")
+R["Lt"]=pd.qcut(R.L,3,labels=["L_low","L_mid","L_high"])
+for f in ["age_min","price_change_1h","bsr","market_cap_usd"]:
+    d=R.dropna(subset=[f]).copy(); d["q"]=pd.qcut(d[f],4,labels=["Q1","Q2","Q3","Q4"])
+    print("\n",f); print(d.pivot_table(index="q",columns="Lt",values="net_ladder_B",aggfunc="mean",observed=True).round(3))
+    print(d.pivot_table(index="q",columns="Lt",values="win2x",aggfunc="mean",observed=True).round(3))
+    for nm,m in (("train",~d.test),("test",d.test)):
+        print(nm); print(d[m].pivot_table(index="q",columns="Lt",values="net_ladder_B",aggfunc="mean",observed=True).round(3))
+# gross (cost-free) view: is timing predictive of gross outcome?
+print("\n=== GROSS (pre-cost) ladder_B mean multiple by decile: age, mcap, pc1h, bsr")
+for f in ["age_min","market_cap_usd","price_change_1h","bsr"]:
+    d=R.dropna(subset=[f]); b=pd.qcut(d[f],10,duplicates="drop")
+    print(f, d.groupby(b,observed=True).ladder_B.mean().round(3).tolist())
+# odd low-bsr bucket
+d=R[R.bsr<1.093]; print("\nlow-bsr bucket profile:",d[["age_min","market_cap_usd","L","liquidity_usd","price_change_1h","holder_count","volume_h24","final_mult","peak_mult","mdd_from_peak"]].median().round(2).to_dict())
+print("share with ladder_B_n==1:",(d.ladder_B_n==1).mean().round(3),"ALL:",(R.ladder_B_n==1).mean().round(3))
+print("liq/mcap median low-bsr vs all:",(d.liquidity_usd/d.market_cap_usd).median().round(2),(R.liquidity_usd/R.market_cap_usd).median().round(2))
